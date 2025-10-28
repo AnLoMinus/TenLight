@@ -1,0 +1,528 @@
+# TenLight - .gitattributes
+# Git attributes for consistent line endings and file handling
+
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Force text files to be LF
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.jsx text eol=lf
+*.tsx text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.go text eol=lf
+*.rs text eol=lf
+*.rb text eol=lf
+*.php text eol=lf
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+*.sql text eol=lf
+*.conf text eol=lf
+*.config text eol=lf
+*.ini text eol=lf
+
+# Force binary files to be binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.mp3 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.wmv binary
+*.flv binary
+*.webm binary
+*.ogg binary
+*.wav binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.rar binary
+*.7z binary
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# Special handling for specific files
+LICENSE text eol=lf
+README.md text eol=lf
+CHANGELOG.md text eol=lf
+CONTRIBUTING.md text eol=lf
+SECURITY.md text eol=lf
+CODE_OF_CONDUCT.md text eol=lf
+ROADMAP.md text eol=lf
+SUPPORT.md text eol=lf
+AUTHORS.md text eol=lf
+ACKNOWLEDGEMENTS.md text eol=lf
+VERSION text eol=lf
+
+# GitHub specific
+.github/** text eol=lf
+.github/workflows/*.yml text eol=lf
+.github/workflows/*.yaml text eol=lf
+.github/ISSUE_TEMPLATE/*.md text eol=lf
+.github/PULL_REQUEST_TEMPLATE.md text eol=lf
+
+# Documentation
+docs/** text eol=lf
+docs/**/*.md text eol=lf
+
+# Source code
+src/** text eol=lf
+src/**/*.js text eol=lf
+src/**/*.ts text eol=lf
+src/**/*.jsx text eol=lf
+src/**/*.tsx text eol=lf
+src/**/*.py text eol=lf
+src/**/*.java text eol=lf
+src/**/*.c text eol=lf
+src/**/*.cpp text eol=lf
+src/**/*.h text eol=lf
+src/**/*.hpp text eol=lf
+src/**/*.go text eol=lf
+src/**/*.rs text eol=lf
+src/**/*.rb text eol=lf
+src/**/*.php text eol=lf
+
+# Tests
+tests/** text eol=lf
+tests/**/*.js text eol=lf
+tests/**/*.ts text eol=lf
+tests/**/*.py text eol=lf
+tests/**/*.java text eol=lf
+
+# Scripts
+scripts/** text eol=lf
+scripts/**/*.js text eol=lf
+scripts/**/*.py text eol=lf
+scripts/**/*.sh text eol=lf
+scripts/**/*.bash text eol=lf
+
+# Configuration files
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.conf text eol=lf
+*.config text eol=lf
+
+# Package files
+package.json text eol=lf
+package-lock.json text eol=lf
+yarn.lock text eol=lf
+pnpm-lock.yaml text eol=lf
+requirements.txt text eol=lf
+requirements-dev.txt text eol=lf
+Pipfile text eol=lf
+Pipfile.lock text eol=lf
+poetry.lock text eol=lf
+pyproject.toml text eol=lf
+Cargo.toml text eol=lf
+Cargo.lock text eol=lf
+go.mod text eol=lf
+go.sum text eol=lf
+composer.json text eol=lf
+composer.lock text eol=lf
+Gemfile text eol=lf
+Gemfile.lock text eol=lf
+
+# Docker files
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+docker-compose.yaml text eol=lf
+.dockerignore text eol=lf
+
+# Kubernetes files
+*.k8s.yaml text eol=lf
+*.k8s.yml text eol=lf
+k8s/**/*.yaml text eol=lf
+k8s/**/*.yml text eol=lf
+
+# Terraform files
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.tfstate text eol=lf
+*.tfstate.backup text eol=lf
+
+# Makefile
+Makefile text eol=lf
+makefile text eol=lf
+GNUmakefile text eol=lf
+
+# Editor files
+.editorconfig text eol=lf
+.vscode/** text eol=lf
+.idea/** text eol=lf
+*.sublime-project text eol=lf
+*.sublime-workspace text eol=lf
+
+# Git files
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.gitmodules text eol=lf
+
+# CI/CD files
+.travis.yml text eol=lf
+.circleci/** text eol=lf
+Jenkinsfile text eol=lf
+azure-pipelines.yml text eol=lf
+
+# Linting and formatting
+.eslintrc* text eol=lf
+.prettierrc* text eol=lf
+.stylelintrc* text eol=lf
+.editorconfig text eol=lf
+.markdownlint.json text eol=lf
+cspell.json text eol=lf
+
+# TypeScript
+tsconfig.json text eol=lf
+tsconfig.*.json text eol=lf
+
+# Python
+setup.py text eol=lf
+setup.cfg text eol=lf
+tox.ini text eol=lf
+pytest.ini text eol=lf
+mypy.ini text eol=lf
+.flake8 text eol=lf
+.ruff.toml text eol=lf
+
+# Java
+pom.xml text eol=lf
+build.gradle text eol=lf
+gradle.properties text eol=lf
+settings.gradle text eol=lf
+
+# C/C++
+CMakeLists.txt text eol=lf
+Makefile text eol=lf
+makefile text eol=lf
+
+# Go
+go.mod text eol=lf
+go.sum text eol=lf
+
+# Rust
+Cargo.toml text eol=lf
+Cargo.lock text eol=lf
+
+# Ruby
+Gemfile text eol=lf
+Gemfile.lock text eol=lf
+Rakefile text eol=lf
+
+# PHP
+composer.json text eol=lf
+composer.lock text eol=lf
+
+# .NET
+*.csproj text eol=lf
+*.sln text eol=lf
+*.props text eol=lf
+*.targets text eol=lf
+
+# Swift
+Package.swift text eol=lf
+
+# Elixir
+mix.exs text eol=lf
+mix.lock text eol=lf
+
+# Elm
+elm.json text eol=lf
+
+# Haskell
+*.cabal text eol=lf
+stack.yaml text eol=lf
+
+# Clojure
+project.clj text eol=lf
+deps.edn text eol=lf
+
+# Scala
+build.sbt text eol=lf
+project/** text eol=lf
+
+# Kotlin
+build.gradle.kts text eol=lf
+
+# Dart
+pubspec.yaml text eol=lf
+pubspec.lock text eol=lf
+
+# Lua
+*.rockspec text eol=lf
+
+# Perl
+Makefile.PL text eol=lf
+Build.PL text eol=lf
+cpanfile text eol=lf
+
+# R
+DESCRIPTION text eol=lf
+NAMESPACE text eol=lf
+
+# Julia
+Project.toml text eol=lf
+Manifest.toml text eol=lf
+
+# OCaml
+dune-project text eol=lf
+dune text eol=lf
+
+# F#
+*.fsproj text eol=lf
+*.sln text eol=lf
+
+# Erlang
+rebar.config text eol=lf
+rebar.lock text eol=lf
+
+# Prolog
+*.pl text eol=lf
+
+# Lisp
+*.asd text eol=lf
+*.lisp text eol=lf
+
+# Scheme
+*.scm text eol=lf
+
+# Assembly
+*.asm text eol=lf
+*.s text eol=lf
+
+# Fortran
+*.f text eol=lf
+*.f90 text eol=lf
+*.f95 text eol=lf
+
+# COBOL
+*.cob text eol=lf
+*.cbl text eol=lf
+
+# Pascal
+*.pas text eol=lf
+*.pp text eol=lf
+
+# Ada
+*.adb text eol=lf
+*.ads text eol=lf
+
+# VHDL
+*.vhd text eol=lf
+*.vhdl text eol=lf
+
+# Verilog
+*.v text eol=lf
+*.sv text eol=lf
+
+# SystemVerilog
+*.svh text eol=lf
+
+# TCL
+*.tcl text eol=lf
+
+# Lua
+*.lua text eol=lf
+
+# PowerShell
+*.ps1 text eol=lf
+*.psm1 text eol=lf
+*.psd1 text eol=lf
+
+# Batch
+*.bat text eol=lf
+*.cmd text eol=lf
+
+# VBScript
+*.vbs text eol=lf
+
+# AppleScript
+*.applescript text eol=lf
+
+# MATLAB
+*.m text eol=lf
+
+# Octave
+*.m text eol=lf
+
+# LabVIEW
+*.vi text eol=lf
+*.ctl text eol=lf
+
+# Simulink
+*.mdl text eol=lf
+*.slx text eol=lf
+
+# Modelica
+*.mo text eol=lf
+
+# GAMS
+*.gms text eol=lf
+
+# AMPL
+*.mod text eol=lf
+*.dat text eol=lf
+
+# CPLEX
+*.lp text eol=lf
+
+# Gurobi
+*.lp text eol=lf
+
+# MPS
+*.mps text eol=lf
+
+# SMT
+*.smt2 text eol=lf
+
+# Z3
+*.smt2 text eol=lf
+
+# CVC4
+*.smt2 text eol=lf
+
+# Yices
+*.smt2 text eol=lf
+
+# Boolector
+*.smt2 text eol=lf
+
+# MathSAT
+*.smt2 text eol=lf
+
+# OpenSMT
+*.smt2 text eol=lf
+
+# STP
+*.smt2 text eol=lf
+
+# VeriT
+*.smt2 text eol=lf
+
+# CVC5
+*.smt2 text eol=lf
+
+# Z3str3
+*.smt2 text eol=lf
+
+# CVC4str
+*.smt2 text eol=lf
+
+# Norn
+*.smt2 text eol=lf
+
+# SMTInterpol
+*.smt2 text eol=lf
+
+# Princess
+*.smt2 text eol=lf
+
+# Eldarica
+*.smt2 text eol=lf
+
+# SPASS-SATT
+*.smt2 text eol=lf
+
+# Beagle
+*.smt2 text eol=lf
+
+# CVC4-SAT
+*.smt2 text eol=lf
+
+# Z3-SAT
+*.smt2 text eol=lf
+
+# MathSAT-SAT
+*.smt2 text eol=lf
+
+# OpenSMT-SAT
+*.smt2 text eol=lf
+
+# STP-SAT
+*.smt2 text eol=lf
+
+# VeriT-SAT
+*.smt2 text eol=lf
+
+# CVC5-SAT
+*.smt2 text eol=lf
+
+# Z3str3-SAT
+*.smt2 text eol=lf
+
+# CVC4str-SAT
+*.smt2 text eol=lf
+
+# Norn-SAT
+*.smt2 text eol=lf
+
+# SMTInterpol-SAT
+*.smt2 text eol=lf
+
+# Princess-SAT
+*.smt2 text eol=lf
+
+# Eldarica-SAT
+*.smt2 text eol=lf
+
+# SPASS-SATT-SAT
+*.smt2 text eol=lf
+
+# Beagle-SAT
+*.smt2 text eol=lf
+
+# TenLight specific files
+*.spiritual text eol=lf
+*.kabbalah text eol=lf
+*.torah text eol=lf
+*.commandment text eol=lf
+*.sefira text eol=lf
+*.mystical text eol=lf
+*.divine text eol=lf
+*.sacred text eol=lf
+*.holy text eol=lf
+*.blessed text eol=lf
+*.enlightened text eol=lf
+*.illuminated text eol=lf
+*.transcendent text eol=lf
+*.eternal text eol=lf
+*.infinite text eol=lf
+*.universal text eol=lf
+*.cosmic text eol=lf
+*.celestial text eol=lf
+*.heavenly text eol=lf

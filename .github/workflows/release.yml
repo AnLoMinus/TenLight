@@ -1,0 +1,157 @@
+name: 🚀 Release & Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., v1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: 🏷️ יצירת גרסה
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+        
+    - name: 📦 Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+        
+    - name: 🧪 Run tests
+      run: |
+        if [ -f package.json ]; then
+          npm test
+        fi
+        
+    - name: 🏗️ Build project
+      run: |
+        if [ -f package.json ]; then
+          npm run build
+        fi
+        
+    - name: 📝 Generate changelog
+      run: |
+        if command -v conventional-changelog &> /dev/null; then
+          conventional-changelog -p angular -i CHANGELOG.md -s
+        fi
+        
+    - name: 🏷️ Create release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref_name }}
+        release_name: Release ${{ github.ref_name }}
+        body: |
+          ## 🎉 גרסה חדשה של TenLight
+          
+          ### שינויים עיקריים:
+          - ראה CHANGELOG.md לפרטים מלאים
+          
+          ### הורדה:
+          - קוד מקור: [Download Source](https://github.com/${{ github.repository }}/archive/${{ github.ref_name }}.zip)
+          - אם יש חבילות: ראה Assets למטה
+          
+          ### התקנה:
+          ```bash
+          git clone https://github.com/${{ github.repository }}.git
+          cd TenLight
+          git checkout ${{ github.ref_name }}
+          ```
+          
+          > "וְהָיָה כִּי יִקְרָא אֶתְכֶם מֹשֶׁה, וְנִגַּשׁ אֲלֵיכֶם כָּל אֲשֶׁר נְדָבוֹ רוּחוֹ" — שמות ל״ה:כ״א
+        draft: false
+        prerelease: ${{ contains(github.ref_name, 'alpha') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc') }}
+
+  deploy-pages:
+    name: 🌐 דיפלוי לאתר
+    runs-on: ubuntu-latest
+    needs: [release]
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+        
+    - name: 🏗️ Build for production
+      run: |
+        if [ -f package.json ]; then
+          npm run build:prod
+        else
+          mkdir -p dist
+          cp -r docs/ dist/ 2>/dev/null || echo "No docs directory"
+          cp README.md dist/ 2>/dev/null || echo "No README"
+        fi
+        
+    - name: 🚀 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        cname: tenlight.org
+        user_name: 'TenLight Bot'
+        user_email: 'bot@tenlight.org'
+
+  notify:
+    name: 📢 הודעות
+    runs-on: ubuntu-latest
+    needs: [release, deploy-pages]
+    if: always()
+    
+    steps:
+    - name: 📢 Notify Discord
+      if: env.DISCORD_WEBHOOK_URL != ''
+      run: |
+        curl -H "Content-Type: application/json" \
+             -d '{
+               "embeds": [{
+                 "title": "🎉 TenLight Release",
+                 "description": "גרסה חדשה זמינה: ${{ github.ref_name }}",
+                 "color": 65280,
+                 "fields": [
+                   {
+                     "name": "🔗 קישורים",
+                     "value": "[GitHub Release](https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }})\n[Website](https://tenlight.org)"
+                   }
+                 ],
+                 "footer": {
+                   "text": "TenLight Project"
+                 }
+               }]
+             }' \
+             ${{ secrets.DISCORD_WEBHOOK_URL }}
+             
+    - name: 📢 Notify Twitter
+      if: env.TWITTER_API_KEY != ''
+      run: |
+        echo "🎉 TenLight v${{ github.ref_name }} שוחרר! חקור את עשרת הדיברות והקבלותיהן הרוחניות. #TenLight #Torah #Kabbalah"
+        # כאן תוכל להוסיף שליחה לטוויטר אם יש API

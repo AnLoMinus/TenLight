@@ -1,0 +1,142 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# YAML files
+[*.{yml,yaml}]
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# JavaScript/TypeScript files
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
+
+# Python files
+[*.py]
+indent_size = 4
+
+# Java files
+[*.java]
+indent_size = 4
+
+# C/C++ files
+[*.{c,cpp,h,hpp}]
+indent_size = 4
+
+# Go files
+[*.go]
+indent_size = 4
+
+# Rust files
+[*.rs]
+indent_size = 4
+
+# Ruby files
+[*.rb]
+indent_size = 2
+
+# PHP files
+[*.php]
+indent_size = 4
+
+# HTML files
+[*.{html,htm}]
+indent_size = 2
+
+# CSS/SCSS files
+[*.{css,scss,sass}]
+indent_size = 2
+
+# XML files
+[*.xml]
+indent_size = 2
+
+# SQL files
+[*.sql]
+indent_size = 2
+
+# Shell scripts
+[*.{sh,bash,zsh}]
+indent_size = 2
+
+# Docker files
+[Dockerfile*]
+indent_size = 4
+
+# Makefile
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Package.json
+[package.json]
+indent_size = 2
+
+# Requirements files
+[requirements*.txt]
+indent_size = 4
+
+# Git files
+[.gitignore]
+indent_size = 2
+
+# Configuration files
+[*.{conf,config,ini}]
+indent_size = 2
+
+# Log files
+[*.log]
+trim_trailing_whitespace = false
+
+# Binary files
+[*.{bin,exe,dll,so,dylib}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+# Image files
+[*.{png,jpg,jpeg,gif,svg,ico}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+# Archive files
+[*.{zip,tar,gz,rar,7z}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+# PDF files
+[*.pdf]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+
+# TenLight specific files
+[*.{spiritual,kabbalah,torah}]
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true

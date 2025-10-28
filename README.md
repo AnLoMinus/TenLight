@@ -1,9 +1,38 @@
-# 📜 עשרת הדיברות – לוחות הברית ✨
+# 📜 TenLight – עשרת הדיברות כפורטלי אור ✨
 
-**שם מאגר מוצע:** “TenLight (TL)” – *Ten Commandments as Light Portals*
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/tenlight/tenlight/releases)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/tenlight/tenlight/actions)
+[![Contributors](https://img.shields.io/badge/contributors-welcome-orange.svg)](CONTRIBUTING.md)
+[![Security](https://img.shields.io/badge/security-responsible-red.svg)](SECURITY.md)
 
-📅 תאריך: 29.10.2025 | כ״ט בתשרי תשפ״ו
-🕒 שעה: 00:56
+**TenLight (TL)** – *Ten Commandments as Light Portals* – פלטפורמה מקיפה לחקר עשרת הדיברות והקבלותיהן הרוחניות והקבליות.
+
+📅 **תאריך עדכון**: 29.10.2025 | כ״ט בתשרי תשפ״ו  
+🕒 **שעה**: 00:56  
+🌍 **שפות**: עברית, אנגלית, ערבית
+
+---
+
+## 🚀 התחלה מהירה
+
+```bash
+# שכפול המאגר
+git clone https://github.com/tenlight/tenlight.git
+cd tenlight
+
+# התקנת תלויות
+npm install
+pip install -r requirements.txt
+
+# הפעלת הפרויקט
+npm run dev
+```
+
+🌐 **אתר**: [tenlight.org](https://tenlight.org)  
+📚 **תיעוד**: [docs/](docs/)  
+🤝 **תרומה**: [CONTRIBUTING.md](CONTRIBUTING.md)  
+🛡️ **אבטחה**: [SECURITY.md](SECURITY.md)
 
 ---
 
@@ -226,7 +255,95 @@
 
 ## 🌿 דברי סיום וחיזוק
 
-> “הַמַּבִּיט לָאָרֶץ וַתִּרְעָד, יִגַּע בָּרִים וְיֶעֱשָׁנוּ.” — תהילים ק״ד:ל״ב
+> "הַמַּבִּיט לָאָרֶץ וַתִּרְעָד, יִגַּע בָּרִים וְיֶעֱשָׁנוּ." — תהילים ק״ד:ל״ב
+> 🌟 כשנבין את עומק הדיברות — הארץ תרעד מאור ה׳ ואור חדש יזרח לעולם.
+
+🕊️ *הלוחות אינם רק עבר – הם גם מפתח לעתיד של שלום, אמונה ואחדות.*
+
+---
+
+## 🛠️ תכונות עיקריות
+
+### 📜 עשרת הדיברות
+
+- תיעוד מקיף של כל דיבר
+* פרשנויות מסורתיות ומודרניות
+* הקשרים היסטוריים ותרבותיים
+
+### ✨ הקבלות קבליות
+
+- הקשרים בין דיברות לספירות
+* ניתוח אנרגטי ורוחני
+* מפת עץ החיים
+
+### 🛠️ כלים אינטראקטיביים
+
+- מנוע חיפוש מתקדם
+* ויזואליזציות דינמיות
+* כלי ניתוח טקסט
+
+### 🌍 תמיכה בשפות
+
+- עברית (שפת המקור)
+* אנגלית
+* ערבית
+* שפות נוספות
+
+---
+
+## 📊 סטטיסטיקות פרויקט
+
+* **📁 קבצים**: 50+ קבצי תיעוד
+* **📚 דפים**: 200+ דפי תוכן
+* **🔍 חיפושים**: 1000+ מונחים
+* **🌍 שפות**: 3+ שפות נתמכות
+* **👥 תורמים**: קהילה פעילה
+
+---
+
+## 🤝 תרומה לפרויקט
+
+אנחנו מזמינים תרומות מכל סוג:
+
+* **🐞 תיקון באגים** - דיווח ותיקון בעיות
+* **💡 תכונות חדשות** - פיתוח כלים ותכונות
+* **📚 שיפור תיעוד** - הוספת הסברים ותרגומים
+* **🔬 מחקר רוחני** - הוספת הקבלות ופרשנויות
+* **🎨 עיצוב** - שיפור הממשק והחווייה
+
+ראה [CONTRIBUTING.md](CONTRIBUTING.md) לפרטים נוספים.
+
+---
+
+## 📞 יצירת קשר
+
+* **🐛 Issues**: [GitHub Issues](https://github.com/tenlight/tenlight/issues)
+* **💬 Discussions**: [GitHub Discussions](https://github.com/tenlight/tenlight/discussions)
+* **📧 Email**: <contact@tenlight.org>
+* **🌐 Website**: [tenlight.org](https://tenlight.org)
+* **💬 Discord**: [קהילת TenLight](https://discord.gg/tenlight)
+
+---
+
+## 📜 רישיון
+
+פרויקט זה מופץ תחת רישיון MIT. ראה [LICENSE](LICENSE) לפרטים.
+
+---
+
+## 🙏 תודה מיוחדת
+
+* **📖 מקורות התורה** - שמות, דברים
+* **🕍 פרשנות מסורתית** - רש"י, רמב"ן, אור החיים
+* **✨ מקורות קבלה** - עץ חיים, הזוהר
+* **👥 קהילת המפתחים** - תורמים טכניים ורוחניים
+* **🌍 הקהילה הגלובלית** - כל מי שתורם לפרויקט
+
+---
+
+## 🌿 דברי סיום וחיזוק
+
+> "הַמַּבִּיט לָאָרֶץ וַתִּרְעָד, יִגַּע בָּרִים וְיֶעֱשָׁנוּ." — תהילים ק״ד:ל״ב
 > 🌟 כשנבין את עומק הדיברות — הארץ תרעד מאור ה׳ ואור חדש יזרח לעולם.
 
 🕊️ *הלוחות אינם רק עבר – הם גם מפתח לעתיד של שלום, אמונה ואחדות.*

@@ -1,0 +1,120 @@
+# Code owners for TenLight project
+# This file defines who is responsible for different parts of the codebase
+
+# Global owners - responsible for the entire project
+* @tenlight-maintainers
+
+# Core documentation
+README.md @tenlight-maintainers @spiritual-researchers
+CHANGELOG.md @tenlight-maintainers
+CONTRIBUTING.md @tenlight-maintainers @community-managers
+SECURITY.md @tenlight-maintainers @security-team
+CODE_OF_CONDUCT.md @tenlight-maintainers @community-managers
+
+# GitHub workflows and configuration
+.github/ @tenlight-maintainers @devops-team
+.github/workflows/ @tenlight-maintainers @devops-team
+.github/ISSUE_TEMPLATE/ @tenlight-maintainers @community-managers
+.github/PULL_REQUEST_TEMPLATE.md @tenlight-maintainers @community-managers
+.github/dependabot.yml @tenlight-maintainers @devops-team
+
+# Configuration files
+.gitignore @tenlight-maintainers @devops-team
+.editorconfig @tenlight-maintainers @devops-team
+package.json @tenlight-maintainers @frontend-team
+requirements.txt @tenlight-maintainers @backend-team
+Dockerfile @tenlight-maintainers @devops-team
+docker-compose.yml @tenlight-maintainers @devops-team
+
+# Source code
+src/ @tenlight-maintainers @frontend-team @backend-team
+src/components/ @frontend-team
+src/utils/ @frontend-team @backend-team
+src/data/ @spiritual-researchers @data-team
+
+# Tests
+tests/ @tenlight-maintainers @qa-team
+tests/unit/ @frontend-team @backend-team
+tests/integration/ @qa-team @devops-team
+tests/e2e/ @qa-team
+
+# Documentation
+docs/ @tenlight-maintainers @spiritual-researchers @technical-writers
+docs/api/ @backend-team @technical-writers
+docs/guides/ @spiritual-researchers @technical-writers
+docs/examples/ @frontend-team @backend-team
+
+# Assets
+assets/ @tenlight-maintainers @design-team
+assets/images/ @design-team
+assets/icons/ @design-team
+assets/fonts/ @design-team
+
+# Scripts
+scripts/ @tenlight-maintainers @devops-team
+scripts/build/ @devops-team
+scripts/deploy/ @devops-team
+scripts/dev/ @frontend-team @backend-team
+
+# Spiritual research content
+spiritual-research/ @spiritual-researchers @rabbis @scholars
+kabbalah-studies/ @spiritual-researchers @kabbalah-experts
+torah-analysis/ @spiritual-researchers @torah-scholars
+
+# Internationalization
+i18n/ @tenlight-maintainers @translators
+i18n/he/ @hebrew-translators
+i18n/en/ @english-translators
+i18n/ar/ @arabic-translators
+
+# Security sensitive files
+SECURITY.md @security-team @tenlight-maintainers
+.github/workflows/security-scan.yml @security-team @devops-team
+
+# Release and deployment
+.github/workflows/release.yml @tenlight-maintainers @devops-team
+.github/workflows/deploy.yml @devops-team
+
+# Database and data
+data/ @data-team @spiritual-researchers
+migrations/ @backend-team @data-team
+
+# API documentation
+api/ @backend-team @technical-writers
+openapi.yaml @backend-team @technical-writers
+
+# Mobile app (if applicable)
+mobile/ @mobile-team
+mobile/ios/ @ios-team
+mobile/android/ @android-team
+
+# Web app
+web/ @frontend-team @design-team
+web/components/ @frontend-team
+web/pages/ @frontend-team @spiritual-researchers
+
+# CLI tools
+cli/ @backend-team @devops-team
+
+# Configuration for different environments
+config/ @devops-team @tenlight-maintainers
+config/development/ @devops-team
+config/production/ @devops-team @security-team
+config/staging/ @devops-team
+
+# Monitoring and analytics
+monitoring/ @devops-team @data-team
+analytics/ @data-team @product-team
+
+# Legal and compliance
+legal/ @legal-team @tenlight-maintainers
+compliance/ @compliance-team @security-team
+
+# Community and outreach
+community/ @community-managers @tenlight-maintainers
+outreach/ @community-managers @marketing-team
+
+# Research and academic
+research/ @spiritual-researchers @academic-team
+papers/ @spiritual-researchers @academic-team
+studies/ @spiritual-researchers @academic-team

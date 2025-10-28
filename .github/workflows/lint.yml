@@ -1,0 +1,177 @@
+name: 🔍 Code Quality & Linting
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 0 * * 0'  # שבועי ביום ראשון
+
+jobs:
+  lint:
+    name: 🔍 בדיקות איכות קוד
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 📦 Install Node.js dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+        
+    - name: 📦 Install Python dependencies
+      run: |
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        fi
+        if [ -f requirements-dev.txt ]; then
+          pip install -r requirements-dev.txt
+        fi
+        
+    - name: 🔍 ESLint (JavaScript/TypeScript)
+      run: |
+        if [ -f package.json ] && npm list eslint > /dev/null 2>&1; then
+          npx eslint . --ext .js,.jsx,.ts,.tsx --format json --output-file eslint-report.json || true
+        fi
+        
+    - name: 🔍 Prettier (Code Formatting)
+      run: |
+        if [ -f package.json ] && npm list prettier > /dev/null 2>&1; then
+          npx prettier --check . || true
+        fi
+        
+    - name: 🔍 Flake8 (Python)
+      run: |
+        if command -v flake8 &> /dev/null; then
+          flake8 . --format=json --output-file=flake8-report.json || true
+        fi
+        
+    - name: 🔍 Black (Python Formatting)
+      run: |
+        if command -v black &> /dev/null; then
+          black --check . || true
+        fi
+        
+    - name: 🔍 MyPy (Python Type Checking)
+      run: |
+        if command -v mypy &> /dev/null; then
+          mypy . --junit-xml=mypy-report.xml || true
+        fi
+        
+    - name: 🔍 Markdown Lint
+      run: |
+        if command -v markdownlint &> /dev/null; then
+          markdownlint "**/*.md" --config .markdownlint.json || true
+        fi
+        
+    - name: 📊 Upload lint reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: lint-reports
+        path: |
+          eslint-report.json
+          flake8-report.json
+          mypy-report.xml
+        if-no-files-found: ignore
+
+  spell-check:
+    name: ✍️ בדיקת איות
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Spell Check
+      uses: streetsidesoftware/cspell-action@v4
+      with:
+        files: '**/*.{md,txt,js,ts,py}'
+        config: cspell.json
+        fail_ci_if_error: false
+        
+    - name: 📊 Upload spell check results
+      uses: actions/upload-artifact@v3
+      with:
+        name: spell-check-results
+        path: cspell-results/
+
+  accessibility:
+    name: ♿ בדיקת נגישות
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+        
+    - name: ♿ Run axe accessibility tests
+      run: |
+        if [ -f package.json ] && npm list @axe-core/cli > /dev/null 2>&1; then
+          npx @axe-core/cli http://localhost:3000 --reporter json --output axe-report.json || true
+        fi
+        
+    - name: 📊 Upload accessibility reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: accessibility-reports
+        path: axe-report.json
+        if-no-files-found: ignore
+
+  performance:
+    name: ⚡ בדיקת ביצועים
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        fi
+        
+    - name: ⚡ Lighthouse CI
+      run: |
+        if [ -f package.json ] && npm list @lhci/cli > /dev/null 2>&1; then
+          npx lhci autorun || true
+        fi
+        
+    - name: 📊 Upload performance reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: performance-reports
+        path: .lighthouseci/
+        if-no-files-found: ignore

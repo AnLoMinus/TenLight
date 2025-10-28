@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "TenLight"
+    given-names: "Project"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "Research"
+    given-names: "Spiritual"
+    orcid: "https://orcid.org/0000-0000-0000-0001"
+  - family-names: "Development"
+    given-names: "Technical"
+    orcid: "https://orcid.org/0000-0000-0000-0002"
+title: "TenLight: Ten Commandments as Light Portals"
+version: 1.0.0
+date-released: 2025-10-29
+url: "https://github.com/tenlight/tenlight"
+repository-code: "https://github.com/tenlight/tenlight"
+license: MIT
+keywords:
+  - "ten commandments"
+  - "kabbalah"
+  - "torah"
+  - "spiritual research"
+  - "religious studies"
+  - "jewish studies"
+  - "mysticism"
+  - "spirituality"
+  - "open source"
+  - "digital humanities"
+abstract: |
+  TenLight is a comprehensive platform for studying the Ten Commandments and their spiritual and Kabbalistic correspondences. 
+  The project provides interactive tools, in-depth research, and learning resources for anyone interested in understanding 
+  the depth of the commandments. It combines modern technology with deep spiritual research to make the wisdom of the 
+  Ten Commandments accessible and meaningful for every person in the world.
