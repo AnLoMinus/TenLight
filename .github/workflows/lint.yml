@@ -80,7 +80,7 @@ jobs:
         fi
         
     - name: 📊 Upload lint reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: lint-reports
         path: |
@@ -105,7 +105,7 @@ jobs:
         fail_ci_if_error: false
         
     - name: 📊 Upload spell check results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: spell-check-results
         path: cspell-results/
@@ -137,7 +137,7 @@ jobs:
         fi
         
     - name: 📊 Upload accessibility reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: accessibility-reports
         path: axe-report.json
@@ -170,7 +170,7 @@ jobs:
         fi
         
     - name: 📊 Upload performance reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: performance-reports
         path: .lighthouseci/

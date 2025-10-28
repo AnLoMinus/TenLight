@@ -61,7 +61,7 @@ jobs:
       continue-on-error: true
       
     - name: 📊 Upload security reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: security-reports
         path: |
@@ -173,7 +173,7 @@ jobs:
         fi
         
     - name: 📊 Upload license report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: license-report
         path: license-report.json
