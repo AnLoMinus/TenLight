@@ -15,7 +15,7 @@ jobs:
     
     steps:
     - name: 📥 Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: 🟢 Setup Node.js
       uses: actions/setup-node@v4
@@ -76,7 +76,7 @@ jobs:
     
     steps:
     - name: 📥 Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: 🔍 Run CodeQL Analysis
       uses: github/codeql-action/init@v2
@@ -107,7 +107,7 @@ jobs:
     
     steps:
     - name: 📥 Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: 🔍 Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
@@ -128,7 +128,7 @@ jobs:
     
     steps:
     - name: 📥 Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: 🔍 Run TruffleHog
       uses: trufflesecurity/trufflehog@main
@@ -152,7 +152,7 @@ jobs:
     
     steps:
     - name: 📥 Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: 🟢 Setup Node.js
       uses: actions/setup-node@v4
