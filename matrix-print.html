@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="טבלה מוצלבת להדפסה - עשרת הדיברות והקבלותיהן">
+    <title>טבלה מוצלבת להדפסה - TenLight</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --gold-color: #f39c12;
+            --text-color: #2c3e50;
+            --bg-color: #ffffff;
+            --border-color: #34495e;
+            --light-bg: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', 'Noto Sans Hebrew', sans-serif;
+            line-height: 1.4;
+            color: var(--text-color);
+            background: var(--bg-color);
+            direction: rtl;
+            font-size: 12px;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 1cm;
+            }
+
+            body {
+                font-size: 10px;
+                line-height: 1.2;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .print-break {
+                page-break-after: always;
+            }
+
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .header .date {
+            font-size: 1rem;
+            color: var(--gold-color);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .matrix-container {
+            width: 100%;
+            overflow: visible;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .matrix-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+        }
+
+        .header-cell {
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            vertical-align: middle;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            min-width: 60px;
+            height: 120px;
+        }
+
+        .header-cell.corner {
+            background: var(--gold-color);
+            writing-mode: horizontal-tb;
+            text-orientation: initial;
+            height: 80px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .matrix-row {
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.2s ease;
+        }
+
+        .matrix-row:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        .matrix-row:hover {
+            background: #e3f2fd;
+        }
+
+        .row-header {
+            padding: 12px 8px;
+            background: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            vertical-align: middle;
+            border-right: 2px solid var(--primary-color);
+            min-width: 180px;
+            max-width: 180px;
+        }
+
+        .matrix-cell {
+            padding: 10px 6px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            font-size: 0.8rem;
+            vertical-align: middle;
+            background: white;
+            min-width: 80px;
+            max-width: 100px;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .matrix-cell:hover {
+            background: #f0f8ff;
+            font-weight: 600;
+        }
+
+        /* Special styling for different columns */
+        .matrix-cell:nth-child(2) {
+            /* ספירות קבליות */
+            background: linear-gradient(135deg, #fff9e6, #fff3cd);
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .matrix-cell:nth-child(3) {
+            /* ניסיונות אברהם */
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            font-weight: 600;
+            color: #155724;
+        }
+
+        .matrix-cell:nth-child(4) {
+            /* עשר המכות */
+            background: linear-gradient(135deg, #ffeaea, #f8d7da);
+            font-weight: 600;
+            color: #721c24;
+        }
+
+        .matrix-cell:nth-child(5) {
+            /* חוקי הצלחה */
+            background: linear-gradient(135deg, #e6f3ff, #cce7ff);
+            font-weight: 600;
+            color: #004085;
+        }
+
+        .matrix-cell:nth-child(6) {
+            /* מערכות הגוף */
+            background: linear-gradient(135deg, #f0e6ff, #e6ccff);
+            font-weight: 600;
+            color: #4a148c;
+        }
+
+        .matrix-cell:nth-child(7) {
+            /* סוגי אינטליגנציה */
+            background: linear-gradient(135deg, #fff0e6, #ffd9b3);
+            font-weight: 600;
+            color: #b8860b;
+        }
+
+        .matrix-cell:nth-child(8) {
+            /* חוקי הכסף */
+            background: linear-gradient(135deg, #e6ffe6, #b3ffb3);
+            font-weight: 600;
+            color: #006400;
+        }
+
+        .matrix-cell:nth-child(9) {
+            /* חוקי המלחמה */
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            font-weight: 600;
+            color: #8b0000;
+        }
+
+        .matrix-cell:nth-child(10) {
+            /* חוקי הזמן */
+            background: linear-gradient(135deg, #e6f0ff, #b3d9ff);
+            font-weight: 600;
+            color: #000080;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            border-top: 2px solid var(--primary-color);
+            padding-top: 20px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .footer .project-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--gold-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 1200px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header-cell {
+                font-size: 0.8rem;
+                padding: 8px 6px;
+                min-width: 50px;
+                height: 100px;
+            }
+
+            .row-header {
+                font-size: 0.8rem;
+                padding: 8px 6px;
+                min-width: 150px;
+                max-width: 150px;
+            }
+
+            .matrix-cell {
+                font-size: 0.7rem;
+                padding: 6px 4px;
+                min-width: 70px;
+                max-width: 80px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .print-button,
+            .back-button {
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                margin: 10px;
+                display: inline-block;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()">
+        🖨️ הדפס טבלה
+    </button>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button no-print">
+        ← חזור לאתר
+    </a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>מטריקס הקבלות - עשרת הדיברות והקבלותיהן</h1>
+            <p class="subtitle">TenLight - עשרת הדיברות כפורטלי אור</p>
+            <p class="date">תאריך הדפסה: <span id="currentDate"></span></p>
+        </div>
+
+        <!-- Matrix Table -->
+        <div class="matrix-container print-avoid-break">
+            <table class="matrix-table">
+                <thead class="matrix-header">
+                    <tr>
+                        <th class="header-cell corner">עשרת הדיברות</th>
+                        <th class="header-cell">ספירות קבליות</th>
+                        <th class="header-cell">ניסיונות אברהם</th>
+                        <th class="header-cell">עשר המכות</th>
+                        <th class="header-cell">חוקי הצלחה</th>
+                        <th class="header-cell">מערכות הגוף</th>
+                        <th class="header-cell">סוגי אינטליגנציה</th>
+                        <th class="header-cell">חוקי הכסף</th>
+                        <th class="header-cell">חוקי המלחמה</th>
+                        <th class="header-cell">חוקי הזמן</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1: Commandment 1 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">1. אנכי ה' אלקיך אשר הוצאתיך מארץ מצרים מבית עבדים</td>
+                        <td class="matrix-cell">כתר</td>
+                        <td class="matrix-cell">ניסיון האש הכשדים</td>
+                        <td class="matrix-cell">מכת דם</td>
+                        <td class="matrix-cell">אמונה</td>
+                        <td class="matrix-cell">מערכת העצבים המרכזית</td>
+                        <td class="matrix-cell">אינטליגנציה רוחנית</td>
+                        <td class="matrix-cell">עושר = ברכה</td>
+                        <td class="matrix-cell">אסטרטגיה עליונה</td>
+                        <td class="matrix-cell">זמן = משאב יקר</td>
+                    </tr>
+
+                    <!-- Row 2: Commandment 2 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">2. לא יהיה לך אלהים אחרים על פני</td>
+                        <td class="matrix-cell">חכמה</td>
+                        <td class="matrix-cell">הגירה לארץ כנען</td>
+                        <td class="matrix-cell">מכת צפרדע</td>
+                        <td class="matrix-cell">חזון ברור</td>
+                        <td class="matrix-cell">מערכת הלב וכלי הדם</td>
+                        <td class="matrix-cell">אינטליגנציה רגשית</td>
+                        <td class="matrix-cell">עושר = אחריות</td>
+                        <td class="matrix-cell">טקטיקה מתקדמת</td>
+                        <td class="matrix-cell">זמן = הזדמנות</td>
+                    </tr>
+
+                    <!-- Row 3: Commandment 3 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">3. לא תשא את שם ה' אלקיך לשוא כי לא ינקה ה' את אשר ישא את שמו לשוא</td>
+                        <td class="matrix-cell">בינה</td>
+                        <td class="matrix-cell">רעב בארץ כנען</td>
+                        <td class="matrix-cell">מכת כינים</td>
+                        <td class="matrix-cell">מטרה מוגדרת</td>
+                        <td class="matrix-cell">מערכת הנשימה</td>
+                        <td class="matrix-cell">אינטליגנציה שכלית</td>
+                        <td class="matrix-cell">עושר = שירות</td>
+                        <td class="matrix-cell">לוגיסטיקה מושלמת</td>
+                        <td class="matrix-cell">זמן = השקעה</td>
+                    </tr>
+
+                    <!-- Row 4: Commandment 4 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">4. זכור את יום השבת לקדשו ששת ימים תעבוד ועשית כל מלאכתך ויום השביעי שבת
+                            לה' אלקיך</td>
+                        <td class="matrix-cell">חסד</td>
+                        <td class="matrix-cell">פרעה ושרה במצרים</td>
+                        <td class="matrix-cell">מכת ערוב</td>
+                        <td class="matrix-cell">משמעת עצמית</td>
+                        <td class="matrix-cell">מערכת העיכול</td>
+                        <td class="matrix-cell">אינטליגנציה מוזיקלית</td>
+                        <td class="matrix-cell">עושר = נתינה</td>
+                        <td class="matrix-cell">תקשורת אפקטיבית</td>
+                        <td class="matrix-cell">זמן = מנוחה</td>
+                    </tr>
+
+                    <!-- Row 5: Commandment 5 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">5. כבד את אביך ואת אמך למען יאריכון ימיך על האדמה אשר ה' אלקיך נתן לך
+                        </td>
+                        <td class="matrix-cell">גבורה</td>
+                        <td class="matrix-cell">מלחמת המלכים</td>
+                        <td class="matrix-cell">מכת דבר</td>
+                        <td class="matrix-cell">כבוד הדדי</td>
+                        <td class="matrix-cell">מערכת השלד והשרירים</td>
+                        <td class="matrix-cell">אינטליגנציה תנועתית</td>
+                        <td class="matrix-cell">עושר = כבוד</td>
+                        <td class="matrix-cell">מנהיגות אמיתית</td>
+                        <td class="matrix-cell">זמן = כבוד</td>
+                    </tr>
+
+                    <!-- Row 6: Commandment 6 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">6. לא תרצח</td>
+                        <td class="matrix-cell">תפארת</td>
+                        <td class="matrix-cell">ברית בין הבתרים</td>
+                        <td class="matrix-cell">מכת שחין</td>
+                        <td class="matrix-cell">אהבה ללא תנאי</td>
+                        <td class="matrix-cell">מערכת הדם והלימפה</td>
+                        <td class="matrix-cell">אינטליגנציה בין-אישית</td>
+                        <td class="matrix-cell">עושר = חיים</td>
+                        <td class="matrix-cell">הגנה על החיים</td>
+                        <td class="matrix-cell">זמן = חיים</td>
+                    </tr>
+
+                    <!-- Row 7: Commandment 7 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">7. לא תנאף</td>
+                        <td class="matrix-cell">נצח</td>
+                        <td class="matrix-cell">ברית מילה</td>
+                        <td class="matrix-cell">מכת ברד</td>
+                        <td class="matrix-cell">נאמנות מוחלטת</td>
+                        <td class="matrix-cell">מערכת הרבייה</td>
+                        <td class="matrix-cell">אינטליגנציה תוך-אישית</td>
+                        <td class="matrix-cell">עושר = נאמנות</td>
+                        <td class="matrix-cell">אמון הדדי</td>
+                        <td class="matrix-cell">זמן = נאמנות</td>
+                    </tr>
+
+                    <!-- Row 8: Commandment 8 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">8. לא תגנב</td>
+                        <td class="matrix-cell">הוד</td>
+                        <td class="matrix-cell">גירוש הגר וישמעאל</td>
+                        <td class="matrix-cell">מכת ארבה</td>
+                        <td class="matrix-cell">יושר מוחלט</td>
+                        <td class="matrix-cell">מערכת הכבד והמרה</td>
+                        <td class="matrix-cell">אינטליגנציה לוגית</td>
+                        <td class="matrix-cell">עושר = יושר</td>
+                        <td class="matrix-cell">יושר במלחמה</td>
+                        <td class="matrix-cell">זמן = יושר</td>
+                    </tr>
+
+                    <!-- Row 9: Commandment 9 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">9. לא תענה ברעך עד שקר</td>
+                        <td class="matrix-cell">יסוד</td>
+                        <td class="matrix-cell">עקידת יצחק</td>
+                        <td class="matrix-cell">מכת חושך</td>
+                        <td class="matrix-cell">אמת מוחלטת</td>
+                        <td class="matrix-cell">מערכת הכליות</td>
+                        <td class="matrix-cell">אינטליגנציה טבעית</td>
+                        <td class="matrix-cell">עושר = אמת</td>
+                        <td class="matrix-cell">אמת במלחמה</td>
+                        <td class="matrix-cell">זמן = אמת</td>
+                    </tr>
+
+                    <!-- Row 10: Commandment 10 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">10. לא תחמד בית רעך לא תחמד אשת רעך ועבדו ואמתו ושורו וחמרו וכל אשר לרעך
+                        </td>
+                        <td class="matrix-cell">מלכות</td>
+                        <td class="matrix-cell">קבורת שרה במערת המכפלה</td>
+                        <td class="matrix-cell">מכת בכורות</td>
+                        <td class="matrix-cell">שמחה אמיתית</td>
+                        <td class="matrix-cell">מערכת העור</td>
+                        <td class="matrix-cell">אינטליגנציה קיומית</td>
+                        <td class="matrix-cell">עושר = שמחה</td>
+                        <td class="matrix-cell">שמחה בניצחון</td>
+                        <td class="matrix-cell">זמן = שמחה</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="project-name">TenLight - עשרת הדיברות כפורטלי אור</p>
+            <p>פלטפורמה מקיפה לחקר עשרת הדיברות והקבלותיהן הרוחניות והקבליות</p>
+            <p>נוצר עם ❤️ על ידי קהילת TenLight | גרסה 1.1.0</p>
+            <p>אתר: tenlight.org | GitHub: github.com/tenlight/tenlight</p>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('he-IL', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Print functionality
+        function printTable() {
+            window.print();
+        }
+
+        // Keyboard shortcut for printing
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+
+        // Add print event listener
+        window.addEventListener('beforeprint', function () {
+            // Add any pre-print modifications here
+            console.log('Preparing for print...');
+        });
+
+        window.addEventListener('afterprint', function () {
+            // Add any post-print modifications here
+            console.log('Print completed');
+        });
+    </script>
+</body>
+
+</html>

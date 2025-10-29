@@ -595,6 +595,31 @@
             overflow-x: auto;
         }
 
+        .matrix-actions {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .btn-print {
+            background: var(--gold-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-print:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
         .matrix-container {
             margin: 2rem 0;
             overflow-x: auto;
@@ -757,6 +782,12 @@
     <section class="matrix-section" id="matrix">
         <div class="container">
             <h2 class="section-title">מטריקס הקבלות - עשרת הדיברות והקבלותיהן</h2>
+            <div class="matrix-actions">
+                <a href="matrix-print.html" target="_blank" class="btn btn-print">
+                    <i class="fas fa-print"></i>
+                    הדפס מטריקס
+                </a>
+            </div>
             <div class="matrix-container">
                 <div class="matrix-table">
                     <div class="matrix-header">
@@ -1036,6 +1067,7 @@
                     <ul>
                         <li><a href="#home">בית</a></li>
                         <li><a href="#matrix">מטריקס הקבלות</a></li>
+                        <li><a href="matrix-print.html" target="_blank">🖨️ הדפס מטריקס</a></li>
                         <li><a href="#commandments">עשרת הדיברות</a></li>
                         <li><a href="#features">תכונות</a></li>
                     </ul>
