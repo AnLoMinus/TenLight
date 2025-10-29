@@ -11,7 +11,7 @@ authors:
     given-names: "Technical"
     orcid: "https://orcid.org/0000-0000-0000-0002"
 title: "TenLight: Ten Commandments as Light Portals"
-version: 1.0.0
+version: 1.1.0
 date-released: 2025-10-29
 url: "https://github.com/tenlight/tenlight"
 repository-code: "https://github.com/tenlight/tenlight"

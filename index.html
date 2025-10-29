@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TenLight - עשרת הדיברות כפורטלי אור. פלטפורמה מקיפה לחקר עשרת הדיברות והקבלותיהן הרוחניות והקבליות.">
+    <meta name="keywords" content="עשרת הדיברות, קבלה, רוחניות, יהדות, תורה, ספירות, ניסיונות אברהם">
+    <meta name="author" content="TenLight Project">
+
+    <title>TenLight - עשרת הדיברות כפורטלי אור ✨</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="TenLight - עשרת הדיברות כפורטלי אור">
+    <meta property="og:description" content="פלטפורמה מקיפה לחקר עשרת הדיברות והקבלותיהן הרוחניות והקבליות">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tenlight.org">
+    <meta property="og:image" content="https://tenlight.org/assets/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --gold-color: #f39c12;
+            --text-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', 'Noto Sans Hebrew', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--gold-color);
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8));
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--bg-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Commandments Section */
+        .commandments {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .commandments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .commandment-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        .commandment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .commandment-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .commandment-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            line-height: 1.5;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold-color);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--gold-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .commandments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Matrix responsive */
+            .matrix-container {
+                margin: 1rem 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .matrix-table {
+                min-width: 1000px;
+            }
+
+            .header-cell {
+                font-size: 0.8rem;
+                padding: 0.8rem 0.3rem;
+            }
+
+            .row-header {
+                font-size: 0.8rem;
+                padding: 0.8rem 0.3rem;
+            }
+
+            .matrix-cell {
+                font-size: 0.75rem;
+                padding: 0.6rem 0.3rem;
+            }
+
+            .matrix-cell.active {
+                font-size: 1rem;
+            }
+
+            .legend-items {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Matrix mobile */
+            .matrix-table {
+                min-width: 800px;
+            }
+
+            .header-cell {
+                font-size: 0.7rem;
+                padding: 0.6rem 0.2rem;
+            }
+
+            .row-header {
+                font-size: 0.7rem;
+                padding: 0.6rem 0.2rem;
+            }
+
+            .matrix-cell {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.2rem;
+            }
+
+            .matrix-cell.active {
+                font-size: 0.9rem;
+            }
+
+            .language-toggle {
+                left: 10px;
+            }
+
+            .lang-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.7rem;
+            }
+
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .lang-btn.active {
+            background: var(--gold-color);
+        }
+
+        /* Matrix Section */
+        .matrix-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: auto;
+        }
+
+        .matrix-container {
+            margin: 2rem 0;
+            overflow-x: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            background: white;
+        }
+
+        .matrix-table {
+            min-width: 1200px;
+            border-collapse: collapse;
+        }
+
+        .matrix-header {
+            display: grid;
+            grid-template-columns: 200px repeat(9, 1fr);
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .header-cell {
+            padding: 1rem 0.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .header-cell.corner {
+            background: var(--gold-color);
+        }
+
+        .matrix-row {
+            display: grid;
+            grid-template-columns: 200px repeat(9, 1fr);
+            border-bottom: 1px solid #e0e0e0;
+            transition: var(--transition);
+        }
+
+        .matrix-row:hover {
+            background: #f8f9fa;
+        }
+
+        .row-header {
+            padding: 1rem 0.5rem;
+            background: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 2px solid var(--primary-color);
+        }
+
+        .matrix-cell {
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .matrix-cell:hover {
+            background: #f0f8ff;
+            transform: scale(1.05);
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <i class="fas fa-star-of-david"></i>
+                TenLight
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">בית</a></li>
+                <li><a href="#matrix">מטריקס הקבלות</a></li>
+                <li><a href="#commandments">עשרת הדיברות</a></li>
+                <li><a href="#features">תכונות</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="changeLanguage('he')" title="עברית">עב</button>
+        <button class="lang-btn" onclick="changeLanguage('en')" title="English">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('ar')" title="العربية">عر</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>TenLight - עשרת הדיברות כפורטלי אור</h1>
+                <p class="subtitle">פלטפורמה מקיפה לחקר עשרת הדיברות והקבלותיהן הרוחניות והקבליות</p>
+                <p class="description">
+                    גלה את העומק הרוחני של עשרת הדיברות דרך הקבלות קבליות, ניסיונות אברהם,
+                    עשר המכות וחוקי הצלחה. פלטפורמה דיגיטלית מתקדמת לחיבור בין הקודש לחול.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#matrix" class="btn btn-primary">
+                        <i class="fas fa-table"></i>
+                        מטריקס הקבלות
+                    </a>
+                    <a href="#commandments" class="btn btn-secondary">
+                        <i class="fas fa-book-open"></i>
+                        התחל לחקור
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matrix Section -->
+    <section class="matrix-section" id="matrix">
+        <div class="container">
+            <h2 class="section-title">מטריקס הקבלות - עשרת הדיברות והקבלותיהן</h2>
+            <div class="matrix-container">
+                <div class="matrix-table">
+                    <div class="matrix-header">
+                        <div class="header-cell corner">עשרת הדיברות</div>
+                        <div class="header-cell">ספירות קבליות</div>
+                        <div class="header-cell">ניסיונות אברהם</div>
+                        <div class="header-cell">עשר המכות</div>
+                        <div class="header-cell">חוקי הצלחה</div>
+                        <div class="header-cell">מערכות הגוף</div>
+                        <div class="header-cell">סוגי אינטליגנציה</div>
+                        <div class="header-cell">חוקי הכסף</div>
+                        <div class="header-cell">חוקי המלחמה</div>
+                        <div class="header-cell">חוקי הזמן</div>
+                    </div>
+
+                    <!-- Row 1: Commandment 1 -->
+                    <div class="matrix-row">
+                        <div class="row-header">1. אנכי ה' אלקיך</div>
+                        <div class="matrix-cell">כתר</div>
+                        <div class="matrix-cell">ניסיון האש</div>
+                        <div class="matrix-cell">דם</div>
+                        <div class="matrix-cell">אמונה</div>
+                        <div class="matrix-cell">מערכת העצבים</div>
+                        <div class="matrix-cell">רוחנית</div>
+                        <div class="matrix-cell">עושר = ברכה</div>
+                        <div class="matrix-cell">אסטרטגיה</div>
+                        <div class="matrix-cell">זמן = משאב</div>
+                    </div>
+
+                    <!-- Row 2: Commandment 2 -->
+                    <div class="matrix-row">
+                        <div class="row-header">2. לא יהיה לך אלהים אחרים</div>
+                        <div class="matrix-cell">חכמה</div>
+                        <div class="matrix-cell">הגירה לארץ</div>
+                        <div class="matrix-cell">צפרדע</div>
+                        <div class="matrix-cell">חזון</div>
+                        <div class="matrix-cell">מערכת הלב</div>
+                        <div class="matrix-cell">רגשית</div>
+                        <div class="matrix-cell">עושר = אחריות</div>
+                        <div class="matrix-cell">טקטיקה</div>
+                        <div class="matrix-cell">זמן = הזדמנות</div>
+                    </div>
+
+                    <!-- Row 3: Commandment 3 -->
+                    <div class="matrix-row">
+                        <div class="row-header">3. לא תשא את שם ה' לשוא</div>
+                        <div class="matrix-cell">בינה</div>
+                        <div class="matrix-cell">רעב בארץ</div>
+                        <div class="matrix-cell">כינים</div>
+                        <div class="matrix-cell">מטרה</div>
+                        <div class="matrix-cell">מערכת הריאות</div>
+                        <div class="matrix-cell">שכלית</div>
+                        <div class="matrix-cell">עושר = שירות</div>
+                        <div class="matrix-cell">לוגיסטיקה</div>
+                        <div class="matrix-cell">זמן = השקעה</div>
+                    </div>
+
+                    <!-- Row 4: Commandment 4 -->
+                    <div class="matrix-row">
+                        <div class="row-header">4. זכור את יום השבת</div>
+                        <div class="matrix-cell">חסד</div>
+                        <div class="matrix-cell">פרעה ושרה</div>
+                        <div class="matrix-cell">ערוב</div>
+                        <div class="matrix-cell">משמעת</div>
+                        <div class="matrix-cell">מערכת העיכול</div>
+                        <div class="matrix-cell">מוזיקלית</div>
+                        <div class="matrix-cell">עושר = נתינה</div>
+                        <div class="matrix-cell">תקשורת</div>
+                        <div class="matrix-cell">זמן = מנוחה</div>
+                    </div>
+
+                    <!-- Row 5: Commandment 5 -->
+                    <div class="matrix-row">
+                        <div class="row-header">5. כבד את אביך ואת אמך</div>
+                        <div class="matrix-cell">גבורה</div>
+                        <div class="matrix-cell">מלחמת המלכים</div>
+                        <div class="matrix-cell">דבר</div>
+                        <div class="matrix-cell">כבוד</div>
+                        <div class="matrix-cell">מערכת השלד</div>
+                        <div class="matrix-cell">תנועתית</div>
+                        <div class="matrix-cell">עושר = כבוד</div>
+                        <div class="matrix-cell">מנהיגות</div>
+                        <div class="matrix-cell">זמן = כבוד</div>
+                    </div>
+
+                    <!-- Row 6: Commandment 6 -->
+                    <div class="matrix-row">
+                        <div class="row-header">6. לא תרצח</div>
+                        <div class="matrix-cell">תפארת</div>
+                        <div class="matrix-cell">ברית בין הבתרים</div>
+                        <div class="matrix-cell">שחין</div>
+                        <div class="matrix-cell">אהבה</div>
+                        <div class="matrix-cell">מערכת הדם</div>
+                        <div class="matrix-cell">בין-אישית</div>
+                        <div class="matrix-cell">עושר = חיים</div>
+                        <div class="matrix-cell">הגנה</div>
+                        <div class="matrix-cell">זמן = חיים</div>
+                    </div>
+
+                    <!-- Row 7: Commandment 7 -->
+                    <div class="matrix-row">
+                        <div class="row-header">7. לא תנאף</div>
+                        <div class="matrix-cell">נצח</div>
+                        <div class="matrix-cell">ברית מילה</div>
+                        <div class="matrix-cell">ברד</div>
+                        <div class="matrix-cell">נאמנות</div>
+                        <div class="matrix-cell">מערכת הרבייה</div>
+                        <div class="matrix-cell">תוך-אישית</div>
+                        <div class="matrix-cell">עושר = נאמנות</div>
+                        <div class="matrix-cell">אמון</div>
+                        <div class="matrix-cell">זמן = נאמנות</div>
+                    </div>
+
+                    <!-- Row 8: Commandment 8 -->
+                    <div class="matrix-row">
+                        <div class="row-header">8. לא תגנב</div>
+                        <div class="matrix-cell">הוד</div>
+                        <div class="matrix-cell">גירוש הגר</div>
+                        <div class="matrix-cell">ארבה</div>
+                        <div class="matrix-cell">יושר</div>
+                        <div class="matrix-cell">מערכת הכבד</div>
+                        <div class="matrix-cell">לוגית</div>
+                        <div class="matrix-cell">עושר = יושר</div>
+                        <div class="matrix-cell">יושר</div>
+                        <div class="matrix-cell">זמן = יושר</div>
+                    </div>
+
+                    <!-- Row 9: Commandment 9 -->
+                    <div class="matrix-row">
+                        <div class="row-header">9. לא תענה ברעך עד שקר</div>
+                        <div class="matrix-cell">יסוד</div>
+                        <div class="matrix-cell">עקידת יצחק</div>
+                        <div class="matrix-cell">חושך</div>
+                        <div class="matrix-cell">אמת</div>
+                        <div class="matrix-cell">מערכת הכליות</div>
+                        <div class="matrix-cell">טבעית</div>
+                        <div class="matrix-cell">עושר = אמת</div>
+                        <div class="matrix-cell">אמת</div>
+                        <div class="matrix-cell">זמן = אמת</div>
+                    </div>
+
+                    <!-- Row 10: Commandment 10 -->
+                    <div class="matrix-row">
+                        <div class="row-header">10. לא תחמד</div>
+                        <div class="matrix-cell">מלכות</div>
+                        <div class="matrix-cell">קבורת שרה</div>
+                        <div class="matrix-cell">מכת בכורות</div>
+                        <div class="matrix-cell">שמחה</div>
+                        <div class="matrix-cell">מערכת העור</div>
+                        <div class="matrix-cell">קיומית</div>
+                        <div class="matrix-cell">עושר = שמחה</div>
+                        <div class="matrix-cell">שמחה</div>
+                        <div class="matrix-cell">זמן = שמחה</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">תכונות מרכזיות</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>עשרת הדיברות</h3>
+                    <p>תיעוד מקיף של כל דיבר עם פרשנויות מסורתיות ומודרניות והקשרים היסטוריים ותרבותיים</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>הקבלות קבליות</h3>
+                    <p>הקשרים בין דיברות לספירות עם ניתוח אנרגטי ורוחני ומפת עץ החיים</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>כלים אינטראקטיביים</h3>
+                    <p>מנוע חיפוש מתקדם, ויזואליזציות דינמיות וכלי ניתוח טקסט מתקדמים</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>תמיכה בשפות</h3>
+                    <p>עברית (שפת המקור), אנגלית, ערבית ושפות נוספות לנגישות גלובלית</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commandments Section -->
+    <section class="commandments" id="commandments">
+        <div class="container">
+            <h2 class="section-title">עשרת הדיברות</h2>
+            <div class="commandments-grid">
+                <div class="commandment-card">
+                    <div class="commandment-number">1</div>
+                    <div class="commandment-text">אנכי ה' אלקיך אשר הוצאתיך מארץ מצרים מבית עבדים</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">2</div>
+                    <div class="commandment-text">לא יהיה לך אלהים אחרים על פני</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">3</div>
+                    <div class="commandment-text">לא תשא את שם ה' אלקיך לשוא</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">4</div>
+                    <div class="commandment-text">זכור את יום השבת לקדשו</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">5</div>
+                    <div class="commandment-text">כבד את אביך ואת אמך</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">6</div>
+                    <div class="commandment-text">לא תרצח</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">7</div>
+                    <div class="commandment-text">לא תנאף</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">8</div>
+                    <div class="commandment-text">לא תגנב</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">9</div>
+                    <div class="commandment-text">לא תענה ברעך עד שקר</div>
+                </div>
+                <div class="commandment-card">
+                    <div class="commandment-number">10</div>
+                    <div class="commandment-text">לא תחמד בית רעך</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">סטטיסטיקות פרויקט</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">קבצי תיעוד</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">דפי תוכן</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">מונחים לחיפוש</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">שפות נתמכות</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>קישורים מהירים</h3>
+                    <ul>
+                        <li><a href="#home">בית</a></li>
+                        <li><a href="#matrix">מטריקס הקבלות</a></li>
+                        <li><a href="#commandments">עשרת הדיברות</a></li>
+                        <li><a href="#features">תכונות</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>תיעוד</h3>
+                    <ul>
+                        <li><a href="docs/INDEX.md">מדריך ראשי</a></li>
+                        <li><a href="docs/GETTING_STARTED.md">התחלה מהירה</a></li>
+                        <li><a href="docs/ARCHITECTURE.md">ארכיטקטורה</a></li>
+                        <li><a href="docs/TEN_COMMANDMENTS.md">עשרת הדיברות</a></li>
+                        <li><a href="docs/KABBALAH.md">קבלה</a></li>
+                        <li><a href="CONTRIBUTING.md">תרומה לפרויקט</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>קהילה</h3>
+                    <ul>
+                        <li><a href="https://github.com/tenlight/tenlight/issues">GitHub Issues</a></li>
+                        <li><a href="https://github.com/tenlight/tenlight/discussions">GitHub Discussions</a></li>
+                        <li><a href="mailto:contact@tenlight.org">contact@tenlight.org</a></li>
+                        <li><a href="https://discord.gg/tenlight">Discord</a></li>
+                        <li><a href="https://github.com/tenlight/tenlight">GitHub Repository</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>מידע נוסף</h3>
+                    <ul>
+                        <li><a href="LICENSE">רישיון</a></li>
+                        <li><a href="SECURITY.md">אבטחה</a></li>
+                        <li><a href="CODE_OF_CONDUCT.md">קוד התנהגות</a></li>
+                        <li><a href="ROADMAP.md">תוכנית פיתוח</a></li>
+                        <li><a href="PRIVACY.md">מדיניות פרטיות</a></li>
+                        <li><a href="TERMS.md">תנאי שימוש</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TenLight Project. כל הזכויות שמורות.</p>
+                <p>נוצר עם ❤️ על ידי קהילת TenLight</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Language switching functionality
+        function changeLanguage(lang) {
+            // Remove active class from all language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Here you would implement actual language switching
+            // For now, we'll just show an alert
+            const languages = {
+                'he': 'עברית',
+                'en': 'English',
+                'ar': 'العربية'
+            };
+
+            alert(`משנה שפה ל-${languages[lang]}`);
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards, commandment cards, and matrix cells
+        document.querySelectorAll('.feature-card, .commandment-card, .matrix-cell').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function () {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add hover effects for cards and matrix cells
+        document.querySelectorAll('.feature-card, .commandment-card, .matrix-cell').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                if (!this.classList.contains('matrix-cell')) {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                }
+            });
+
+            card.addEventListener('mouseleave', function () {
+                if (!this.classList.contains('matrix-cell')) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        // Matrix cell click effects
+        document.querySelectorAll('.matrix-cell').forEach(cell => {
+            cell.addEventListener('click', function () {
+                // Add pulse effect
+                this.style.animation = 'pulse 0.6s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+
+        // Add pulse animation CSS
+        const pulseStyle = document.createElement('style');
+        pulseStyle.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(pulseStyle);
+
+        // Add click effects for buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple effect CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .btn {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
