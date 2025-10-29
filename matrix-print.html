@@ -41,16 +41,118 @@
             font-size: 12px;
         }
 
-        /* Print Styles */
+        /* Print Styles - חישוב מדויק לגודל A4 לרוחב */
         @media print {
             @page {
                 size: A4 landscape;
-                margin: 1cm;
+                margin: 8mm;
+                /* צמצום שוליים ל-8mm במקום 1cm */
             }
 
             body {
-                font-size: 10px;
-                line-height: 1.2;
+                font-size: 8px;
+                /* הקטנה מ-10px ל-8px */
+                line-height: 1.1;
+                /* צמצום מ-1.2 ל-1.1 */
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .header {
+                margin-bottom: 15px;
+                /* צמצום מ-30px ל-15px */
+                padding-bottom: 10px;
+                /* צמצום מ-20px ל-10px */
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+                /* הקטנה מ-2.5rem ל-1.8rem */
+                margin-bottom: 5px;
+                /* צמצום מ-10px ל-5px */
+            }
+
+            .header .subtitle {
+                font-size: 1rem;
+                /* הקטנה מ-1.2rem ל-1rem */
+            }
+
+            .header .date {
+                font-size: 0.8rem;
+                /* הקטנה מ-1rem ל-0.8rem */
+                margin-top: 5px;
+                /* צמצום מ-10px ל-5px */
+            }
+
+            .matrix-container {
+                margin: 0;
+                border: 1px solid var(--border-color);
+                /* צמצום מ-2px ל-1px */
+            }
+
+            .header-cell {
+                padding: 6px 4px;
+                /* צמצום מ-12px 8px ל-6px 4px */
+                font-size: 0.7rem;
+                /* הקטנה מ-0.9rem ל-0.7rem */
+                min-width: 45px;
+                /* הקטנה מ-60px ל-45px */
+                height: 80px;
+                /* הקטנה מ-120px ל-80px */
+            }
+
+            .header-cell.corner {
+                height: 50px;
+                /* הקטנה מ-80px ל-50px */
+                font-size: 0.8rem;
+                /* הקטנה מ-1rem ל-0.8rem */
+            }
+
+            .row-header {
+                padding: 6px 4px;
+                /* צמצום מ-12px 8px ל-6px 4px */
+                font-size: 0.7rem;
+                /* הקטנה מ-0.9rem ל-0.7rem */
+                min-width: 120px;
+                /* הקטנה מ-180px ל-120px */
+                max-width: 120px;
+                /* הקטנה מ-180px ל-120px */
+            }
+
+            .matrix-cell {
+                padding: 4px 3px;
+                /* צמצום מ-10px 6px ל-4px 3px */
+                font-size: 0.6rem;
+                /* הקטנה מ-0.8rem ל-0.6rem */
+                min-width: 60px;
+                /* הקטנה מ-80px ל-60px */
+                max-width: 70px;
+                /* הקטנה מ-100px ל-70px */
+            }
+
+            .footer {
+                margin-top: 15px;
+                /* צמצום מ-30px ל-15px */
+                padding-top: 10px;
+                /* צמצום מ-20px ל-10px */
+            }
+
+            .footer p {
+                font-size: 0.7rem;
+                /* הקטנה מ-0.9rem ל-0.7rem */
+                margin-bottom: 2px;
+                /* צמצום מ-5px ל-2px */
+            }
+
+            .footer .project-name {
+                font-size: 0.9rem;
+                /* הקטנה מ-1.1rem ל-0.9rem */
             }
 
             .no-print {
@@ -64,39 +166,71 @@
             .print-avoid-break {
                 page-break-inside: avoid;
             }
+
+            /* חישוב מדויק של גובה הטבלה */
+            /* גובה כותרת: 40px + מרווחים: 15px = 55px */
+            /* גובה שורת כותרת: 80px */
+            /* גובה 10 שורות נתונים: 10 × 35px = 350px */
+            /* גובה פוטר: 35px + מרווחים: 15px = 50px */
+            /* סה"כ: 55 + 80 + 350 + 50 = 535px */
+            /* A4 לרוחב: 210mm = 794px (ב-96 DPI) */
+            /* עם שוליים 8mm מכל צד: 794 - 16 = 778px */
+            /* הטבלה נכנסת בנוחות עם מרווח של 243px! */
+
+            /* הגדרת גובה מקסימלי לשורות */
+            .matrix-row {
+                height: 35px;
+                /* גובה קבוע לכל שורה */
+            }
+
+            .matrix-cell {
+                height: 35px;
+                /* גובה קבוע לכל תא */
+                line-height: 1.1;
+                /* צמצום line-height */
+            }
         }
 
         .container {
             max-width: 100%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
+            /* צמצום מ-20px ל-15px */
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 20px;
+            margin-bottom: 20px;
+            /* צמצום מ-30px ל-20px */
+            border-bottom: 2px solid var(--primary-color);
+            /* צמצום מ-3px ל-2px */
+            padding-bottom: 15px;
+            /* צמצום מ-20px ל-15px */
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            /* הקטנה מ-2.5rem ל-2.2rem */
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            /* צמצום מ-10px ל-8px */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .header .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            /* הקטנה מ-1.2rem ל-1.1rem */
             color: var(--secondary-color);
             font-weight: 500;
         }
 
         .header .date {
-            font-size: 1rem;
+            font-size: 0.9rem;
+            /* הקטנה מ-1rem ל-0.9rem */
             color: var(--gold-color);
-            margin-top: 10px;
+            margin-top: 8px;
+            /* צמצום מ-10px ל-8px */
             font-weight: 600;
         }
 
@@ -121,24 +255,30 @@
         }
 
         .header-cell {
-            padding: 12px 8px;
+            padding: 10px 6px;
+            /* צמצום מ-12px 8px ל-10px 6px */
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            /* הקטנה מ-0.9rem ל-0.85rem */
             font-weight: 600;
             vertical-align: middle;
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            min-width: 60px;
-            height: 120px;
+            min-width: 55px;
+            /* הקטנה מ-60px ל-55px */
+            height: 100px;
+            /* הקטנה מ-120px ל-100px */
         }
 
         .header-cell.corner {
             background: var(--gold-color);
             writing-mode: horizontal-tb;
             text-orientation: initial;
-            height: 80px;
-            font-size: 1rem;
+            height: 70px;
+            /* הקטנה מ-80px ל-70px */
+            font-size: 0.95rem;
+            /* הקטנה מ-1rem ל-0.95rem */
             font-weight: 700;
         }
 
@@ -156,27 +296,35 @@
         }
 
         .row-header {
-            padding: 12px 8px;
+            padding: 10px 6px;
+            /* צמצום מ-12px 8px ל-10px 6px */
             background: var(--secondary-color);
             color: white;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            /* הקטנה מ-0.9rem ל-0.85rem */
             text-align: center;
             vertical-align: middle;
             border-right: 2px solid var(--primary-color);
-            min-width: 180px;
-            max-width: 180px;
+            min-width: 160px;
+            /* הקטנה מ-180px ל-160px */
+            max-width: 160px;
+            /* הקטנה מ-180px ל-160px */
         }
 
         .matrix-cell {
-            padding: 10px 6px;
+            padding: 8px 5px;
+            /* צמצום מ-10px 6px ל-8px 5px */
             text-align: center;
             border: 1px solid #e0e0e0;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            /* הקטנה מ-0.8rem ל-0.75rem */
             vertical-align: middle;
             background: white;
-            min-width: 80px;
-            max-width: 100px;
+            min-width: 70px;
+            /* הקטנה מ-80px ל-70px */
+            max-width: 85px;
+            /* הקטנה מ-100px ל-85px */
             word-wrap: break-word;
             hyphens: auto;
         }
@@ -251,22 +399,27 @@
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 20px;
+            /* צמצום מ-30px ל-20px */
             text-align: center;
             border-top: 2px solid var(--primary-color);
-            padding-top: 20px;
+            padding-top: 15px;
+            /* צמצום מ-20px ל-15px */
         }
 
         .footer p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            /* הקטנה מ-0.9rem ל-0.85rem */
             color: var(--text-color);
-            margin-bottom: 5px;
+            margin-bottom: 3px;
+            /* צמצום מ-5px ל-3px */
         }
 
         .footer .project-name {
             font-weight: 700;
             color: var(--primary-color);
-            font-size: 1.1rem;
+            font-size: 1rem;
+            /* הקטנה מ-1.1rem ל-1rem */
         }
 
         .print-button {
