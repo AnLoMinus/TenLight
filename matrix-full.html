@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TenLight - מטריקס הקבלות מלא ומקיף. פלטפורמה מקיפה לחקר עשרת הדיברות והקבלותיהן הרוחניות והקבליות.">
+    <meta name="keywords" content="עשרת הדיברות, קבלה, רוחניות, יהדות, תורה, ספירות, ניסיונות אברהם">
+    <meta name="author" content="TenLight Project">
+
+    <title>מטריקס הקבלות המלא - TenLight 🗺️</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --gold-color: #f39c12;
+            --text-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', 'Noto Sans Hebrew', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--gold-color);
+            font-size: 2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-back {
+            background: var(--gold-color);
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            padding: 120px 40px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-section .description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+
+        /* Matrix Section */
+        .matrix-section {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: auto;
+        }
+
+        .matrix-container {
+            margin: 0;
+            overflow-x: auto;
+            overflow-y: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            background: white;
+            max-width: 100%;
+        }
+
+        .matrix-table {
+            width: 100%;
+            min-width: 3000px;
+            border-collapse: collapse;
+        }
+
+        .matrix-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-cell {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.1rem;
+            writing-mode: horizontal-tb;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .header-cell.corner {
+            background: var(--gold-color);
+            position: sticky;
+            right: 0;
+            z-index: 101;
+            min-width: 250px;
+        }
+
+        .matrix-row {
+            border-bottom: 1px solid #e0e0e0;
+            transition: var(--transition);
+        }
+
+        .matrix-row:hover {
+            background: #f8f9fa;
+        }
+
+        .matrix-row:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .row-header {
+            padding: 1.5rem 1rem;
+            background: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            vertical-align: middle;
+            border-right: 3px solid var(--primary-color);
+            position: sticky;
+            right: 0;
+            z-index: 99;
+            min-width: 250px;
+        }
+
+        .matrix-cell {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+            vertical-align: top;
+            background: white;
+            min-width: 300px;
+            max-width: 500px;
+            word-wrap: break-word;
+        }
+
+        .matrix-cell .main-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .matrix-cell .description {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+            text-align: right;
+        }
+
+        .matrix-cell:hover {
+            background: #f0f8ff;
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Color coding for columns */
+        .matrix-cell.col-1 {
+            background: linear-gradient(135deg, #fff9e6, #fff3cd);
+        }
+
+        .matrix-cell.col-2 {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+        }
+
+        .matrix-cell.col-3 {
+            background: linear-gradient(135deg, #ffeaea, #f8d7da);
+        }
+
+        .matrix-cell.col-4 {
+            background: linear-gradient(135deg, #e6f3ff, #cce7ff);
+        }
+
+        .matrix-cell.col-5 {
+            background: linear-gradient(135deg, #f0e6ff, #e6ccff);
+        }
+
+        .matrix-cell.col-6 {
+            background: linear-gradient(135deg, #fff0e6, #ffd9b3);
+        }
+
+        .matrix-cell.col-7 {
+            background: linear-gradient(135deg, #e6ffe6, #b3ffb3);
+        }
+
+        .matrix-cell.col-8 {
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+        }
+
+        .matrix-cell.col-9 {
+            background: linear-gradient(135deg, #e6f0ff, #b3d9ff);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .header-cell {
+                font-size: 0.9rem;
+                padding: 1rem 0.5rem;
+                min-width: 200px;
+            }
+
+            .row-header {
+                font-size: 0.9rem;
+                padding: 1rem 0.5rem;
+                min-width: 200px;
+            }
+
+            .matrix-cell {
+                font-size: 0.85rem;
+                padding: 1rem 0.5rem;
+                min-width: 200px;
+            }
+
+            .matrix-cell .main-text {
+                font-size: 1rem;
+            }
+
+            .nav {
+                padding: 1rem;
+            }
+
+            .hero-section {
+                padding: 100px 20px 20px;
+            }
+        }
+
+        /* Legend */
+        .legend {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .legend h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-star-of-david"></i>
+                TenLight
+            </a>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-back">
+                    <i class="fas fa-arrow-right"></i>
+                    חזור לאתר
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div>
+            <h1><i class="fas fa-map"></i> מטריקס הקבלות המלא</h1>
+            <p class="subtitle">מפה מקיפה של כל ההקבלות בין עשרת הדיברות למימדים השונים</p>
+            <p class="description">
+                מטריקס זה מספק מבט מלא ועומק על הקשרים המורכבים בין עשרת הדיברות לבין הספירות הקבליות, ניסיונות אברהם,
+                עשר המכות, חוקי הצלחה, מערכות הגוף, סוגי אינטליגנציה, חוקי הכסף, חוקי המלחמה וחוקי הזמן.
+            </p>
+        </div>
+    </section>
+
+    <!-- Legend -->
+    <div class="legend">
+        <h3>🖼️ מקרא צבעים</h3>
+        <div class="legend-items">
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #fff9e6, #fff3cd);"></div>
+                <span><strong>ספירות קבליות</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #e8f5e8, #d4edda);"></div>
+                <span><strong>ניסיונות אברהם</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #ffeaea, #f8d7da);"></div>
+                <span><strong>עשר המכות</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #e6f3ff, #cce7ff);"></div>
+                <span><strong>חוקי הצלחה</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #f0e6ff, #e6ccff);"></div>
+                <span><strong>מערכות הגוף</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #fff0e6, #ffd9b3);"></div>
+                <span><strong>סוגי אינטליגנציה</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #e6ffe6, #b3ffb3);"></div>
+                <span><strong>חוקי הכסף</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #ffe6e6, #ffb3b3);"></div>
+                <span><strong>חוקי המלחמה</strong></span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #e6f0ff, #b3d9ff);"></div>
+                <span><strong>חוקי הזמן</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Section -->
+    <section class="matrix-section">
+        <div class="matrix-container">
+            <table class="matrix-table">
+                <thead class="matrix-header">
+                    <tr>
+                        <th class="header-cell corner">עשרת הדיברות</th>
+                        <th class="header-cell">ספירות קבליות</th>
+                        <th class="header-cell">ניסיונות אברהם</th>
+                        <th class="header-cell">עשר המכות</th>
+                        <th class="header-cell">חוקי הצלחה</th>
+                        <th class="header-cell">מערכות הגוף</th>
+                        <th class="header-cell">סוגי אינטליגנציה</th>
+                        <th class="header-cell">חוקי הכסף</th>
+                        <th class="header-cell">חוקי המלחמה</th>
+                        <th class="header-cell">חוקי הזמן</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1: Commandment 1 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>1. אנכי ה' אלקיך אשר הוצאתיך מארץ מצרים מבית עבדים</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר הראשון - הכרה באלוהים האחד והשחרור מעבדות
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">כתר</div>
+                            <div class="description">
+                                כתר עליון הוא הספירה הראשונה בעץ החיים הקבלי, המייצגת את המקור האלוהי העליון, המאחדת
+                                את כל המערכות ומספקת ברכה והשראה עליונה. דרך כתר, אנו מקבלים קשר ישיר עם האינסוף
+                                והחיבור למקור החיים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">ניסיון האש הכשדים</div>
+                            <div class="description">
+                                אברהם אבינו נזרק לכבשן האש על ידי נמרוד מלך כשדים בשל אמונתו באל אחד. ניסיון זה מדגיש
+                                את החשיבות של אמונה מוחלטת ונכונות להקריב הכל למען האמת, גם מול איום על החיים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת דם</div>
+                            <div class="description">
+                                הדם מסמל חיים ולכן מכת דם מסמלת את שליטת האל על החיים והמוות. המים שהופכים לדם מדגישים
+                                את כוחו של האל לשנות את המציאות והחשיבות של הכרה בו כמקור החיים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">אמונה</div>
+                            <div class="description">
+                                אמונה היא היסוד לכל הצלחה. אמונה באל, בעצמך וביכולותיך מאפשרת להתגבר על מכשולים. כאשר
+                                אנו מאמינים, אנו מצליחים לראות אפשרויות שנדמו בלתי אפשריות ולהשיג מטרות גדולות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת העצבים המרכזית</div>
+                            <div class="description">
+                                מערכת העצבים המרכזית כוללת את המוח וחוט השדרה. היא מייצגת את מרכז השליטה וההנהגה
+                                האלוהית בגוף. כשם שהמוח שולט על כל תפקודי הגוף, כך אלוהים שולט על הקיום כולו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה רוחנית</div>
+                            <div class="description">
+                                אינטליגנציה רוחנית היא היכולת להבין את העולם דרך עדשה רוחנית, להרגיש חיבור למשהו גדול
+                                יותר ולשאול שאלות על מטרת הקיום. היא מאפשרת לנו למצוא משמעות ושלום פנימי.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = ברכה</div>
+                            <div class="description">
+                                עושר אמיתי מגיע מברכה אלוהית ולא רק מעבודה קשה. כשאנו מכירים באל כמקור הברכה, העושר
+                                מגיע בדרך נכונה ומבורך. הכסף הוא כלי לברכה ולא מטרה בפני עצמה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">אסטרטגיה עליונה</div>
+                            <div class="description">
+                                אסטרטגיה עליונה מבוססת על ראיית התמונה הגדולה והבנת מטרות ארוכות טווח. בקונפליקט,
+                                חשוב להבין את שורש המחלוקת ולהילחם למען מה שחשוב באמת, מתוך אמונה בחזון.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = משאב יקר</div>
+                            <div class="description">
+                                הזמן הוא המשאב היקר ביותר שקיים. אין לו תחליף ואי אפשר להחזיר אותו. חיוני להשתמש בו
+                                בחוכמה, להקדיש זמן למה שחשוב באמת ולנצל כל רגע בצורה מקסימלית.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2: Commandment 2 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>2. לא יהיה לך אלהים אחרים על פני</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר השני - אחדות מוחלטת ונאמנות בלעדית
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">חכמה</div>
+                            <div class="description">
+                                חכמה היא הספירה השנייה בעץ החיים, המסמלת הבנה והארה. חכמה מאפשרת לראות את האמת
+                                שמאחורי המסכות ולהבין שהאל אחד הוא המקור היחיד לחכמה אמיתית. כל חכמה אחרת היא רק
+                                העתק חיוור.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">הגירה לארץ כנען</div>
+                            <div class="description">
+                                אברהם נצטווה לעזוב את ארץ מולדתו ולעבור לארץ כנען. ניסיון זה מדגיש נאמנות מוחלטת ונכונות
+                                לזנוח את הישן למען החדש. הוא נדרש לשים את אמונתו באל לפני כל דבר אחר בחייו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת צפרדע</div>
+                            <div class="description">
+                                הצפרדעים מסמלות תחליף כוזב לאלים. הן עלו בכל מקום, גם בשאריות האוכל הנותרות, מה שמדגיש
+                                שהאלילים חודרים לכל תחום בחיים. מכת צפרדע לימדה שהאל אחד בלבד שולט על המציאות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">חזון ברור</div>
+                            <div class="description">
+                                חזון ברור פירושו ידיעה מדויקת לאן אנחנו רוצים להגיע. חזון מאפשר לנו לא להיסחף אחרי
+                                מטרות זמניות ולתת עדיפות למה שחשוב באמת. חזון גורם לנו לפעול מתוך כיוון ולא מתוך תגובה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת הלב וכלי הדם</div>
+                            <div class="description">
+                                הלב מסמל את המרכז הרגשי והחיים. כשם שהלב מזרים דם לכל הגוף ומחזיק את החיים, כך האמונה
+                                באל אחד מזינה כל תחום בחיינו. לב מחולק מסמל חיים ללא כיוון וללא מחויבות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה רגשית</div>
+                            <div class="description">
+                                אינטליגנציה רגשית היא היכולת להבין ולנהל רגשות בצורה יעילה. היא מאפשרת לנו להבחין בין
+                                רגשות אמיתיים לרגשות חלופיים, להבין את עצמנו טוב יותר ולהיות אמפתיים כלפי אחרים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = אחריות</div>
+                            <div class="description">
+                                עושר מגיע עם אחריות גדולה. כשאנו ממוקדים באל אחד כמקור, אנו מבינים שהעושר שהוענק לנו הוא
+                                בעצם פיקדון עליו אנו אחראים. אחריות פירושה להשתמש בעושר בדרך שתשרת את המטרה האלוהית.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">טקטיקה מתקדמת</div>
+                            <div class="description">
+                                טקטיקה מתקדמת דורשת הכנה מדוקדקת והבנה של הפרטים הקטנים. בקונפליקט, חשוב להבין את
+                                הניואנסים ולהתאים את הגישה לכל מצב. טקטיקה טובה יוצרת יתרון כאשר אנו מכירים באל כמקור
+                                החכמה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = הזדמנות</div>
+                            <div class="description">
+                                כל רגע הוא הזדמנות חדשה. כשאנו רואים את הזמן כהזדמנות, אנו מבינים שכל רגע יכול להביא
+                                משהו חיובי. חשוב לזהות הזדמנויות ולהיות מוכנים לקפוץ עליהן כשהן מגיעות.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3: Commandment 3 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>3. לא תשא את שם ה' אלקיך לשוא כי לא ינקה ה' את אשר ישא את שמו לשוא</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר השלישי - כיבוד הקדושה והימנעות מחילול השם
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">בינה</div>
+                            <div class="description">
+                                בינה היא הספירה השלישית, המסמלת הבנה עמוקה והבחנה. בינה מאפשרת להבחין בין קדושה לחול,
+                                להבין את המשמעות העמוקה מאחורי המילים ולכבד את הקדוש. דרכה אנו לומדים את החשיבות של
+                                כיבוד השם.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">רעב בארץ כנען</div>
+                            <div class="description">
+                                אברהם ירד למצרים בגלל רעב בכנען. ניסיון זה לימד את אברהם להבין שזה לא מספיק להאמין, אלא
+                                צריך גם לכבד את האל ולשמור על הקדושה גם בקשיים. הרעב טסט את יכולתו לשמור על ערכיו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת כינים</div>
+                            <div class="description">
+                                הכינים מסמלות שימוש לרעה בשם קדוש. הן קטנות אך מעצבנות מאוד, מה שמדגיש שחילול השם
+                                יכול להיראות קטן אך השפעתו גדולה. מכת כינים לימדה את חשיבות הכבוד וההבנה של קדושת
+                                השם.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">מטרה מוגדרת</div>
+                            <div class="description">
+                                מטרה מוגדרת פירושה שיש לנו יעד ברור שאנו מכוונים אליו. מטרה מוגדרת מאפשרת לנו לדעת מתי
+                                אנו על המסלול הנכון ומתי אנו סוטים ממנו. היא גורמת לנו לפעול במכוון ולא לפזר את המאמץ.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת הנשימה</div>
+                            <div class="description">
+                                הנשימה מסמלת את הקשר בינינו לבין האלוהי. כפי שאנו נושמים כדי לחיות, כך אנו צריכים
+                                להתחבר לאלוהי כדי לחיות חיים מלאים. נשימה נכונה מסמלת כבוד וזיהוי של הערך האלוהי בנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה שכלית</div>
+                            <div class="description">
+                                אינטליגנציה שכלית היא היכולת לחשוב בצורה ביקורתית ולהבין מושגים מורכבים. היא מאפשרת לנו
+                                להבחין בין מה נכון למה לא, להבין עומק ואת המשמעות מאחורי דברים ולקבל החלטות חכמות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = שירות</div>
+                            <div class="description">
+                                עושר צריך להיות ממוקד בשירות ולא בעצמי. כשאנו מכירים בקדושת העושר, אנו מבינים שהוא נועד
+                                לשרת מטרות גדולות יותר. שימוש בעושר לשירות מאפשר לו להיות מבורך ולהביא ברכה גם לאחרים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">לוגיסטיקה מושלמת</div>
+                            <div class="description">
+                                לוגיסטיקה מושלמת דורשת תכנון והכנה מדוקדקת. בקונפליקט, חשוב לא רק להיות מוכן טכנית,
+                                אלא גם מבחינה רוחנית. לוגיסטיקה טובה משקפת כבוד לעצמנו ולמטרותינו ומאפשרת הצלחה
+                                מקסימלית.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = השקעה</div>
+                            <div class="description">
+                                הזמן שמושקע במשהו משקף את הערך שאנו נותנים לו. כשאנו משקיעים זמן במה שחשוב, אנו מראים
+                                כבוד למה שאנו עושים. חשוב להשקיע זמן איכותי ולא רק זמן כמותי, ולהבטיח שהזמן שלנו מבוזבז
+                                בצורה חכמה.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 4: Commandment 4 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>4. זכור את יום השבת לקדשו ששת ימים תעבוד ועשית כל מלאכתך ויום השביעי שבת לה' אלקיך
+                                לא תעשה כל מלאכה</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר הרביעי - קדושת הזמן והמנוחה
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">חסד</div>
+                            <div class="description">
+                                חסד היא הספירה הרביעית, המסמלת אהבה ונתינה. חסד מלמדת אותנו את החשיבות של מנוחה וקיום
+                                מרחב לנתינה. שבת היא ביטוי של חסד - אנחנו מקבלים יום מיוחד שבו אנו יכולים להקדיש זמן
+                                לאלוהי ולרווחה רוחנית.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">פרעה ושרה במצרים</div>
+                            <div class="description">
+                                אברהם לימד שהזוגיות היא קדושה ונצטרך להגן עליה. כאשר פרעה לקח את שרה, אברהם פעל למען
+                                החזרתה. ניסיון זה הדגיש את החשיבות של קדושת הזמן והזוגיות והנכונות להגן על מה שקדוש.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת ערוב</div>
+                            <div class="description">
+                                הערוב (מערכת של חיות פרא) מסמל בלבול וחוסר מנוחה. הוא הראה שבלי קדושה ומנוחה, העולם
+                                יכול להפוך לבלגן. מכת ערוב לימדה את חשיבות היצירתיות והמנוחה כדי לשמור על סדר וחיים
+                                מאוזנים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">משמעת עצמית</div>
+                            <div class="description">
+                                משמעת עצמית פירושה היכולת להטיל על עצמנו גבולות ולשמור עליהם. היא דורשת כוח רצון
+                                ויכולת לעמוד בפיתויים. משמעת עצמית מאפשרת לנו להשיג מטרות ארוכות טווח ולבנות הרגלים
+                                חיוביים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת העיכול</div>
+                            <div class="description">
+                                מערכת העיכול מסמלת את היכולת להטמיע ולעכל. כשם שצריך זמן לעיכול, כך צריך זמן לעיבוד
+                                והבנה של חוויות רוחניות. מנוחה מאפשרת לגוף להתחדש ולעבד את מה שקרה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה מוזיקלית</div>
+                            <div class="description">
+                                אינטליגנציה מוזיקלית היא היכולת לזהות ולעתים גם ליצור דפוסים, מקצבים ותבניות. היא מאפשרת
+                                לנו להבין את הריתמוס של החיים והמשמעות של מנוחה ופעולה. מוזיקה מסמלת את המקצב הפנימי
+                                שלנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = נתינה</div>
+                            <div class="description">
+                                עושר אמיתי מתבטא בנתינה. כשאנו נותנים, אנו יוצרים מערכת של חליפין חיובית שמביאה ברכה
+                                חזרה. נתינה משקפת את ההבנה שהעושר הוא לא רק לשימוש אישי אלא גם לשיתוף עם אחרים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">תקשורת אפקטיבית</div>
+                            <div class="description">
+                                תקשורת אפקטיבית דורשת זמן ושקט. בקונפליקט, צריך לקחת רגע למחשבה ולתקשורת נכונה. תקשורת
+                                טובה משקפת כבוד הדדי ומאפשרת פתרון קונפליקטים בדרך שליווה ופורה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = מנוחה</div>
+                            <div class="description">
+                                הזמן למנוחה הוא חיוני כמו הזמן לעבודה. מנוחה מאפשרת לנו להתחדש, לאגור כוחות ולהיות
+                                פרודוקטיביים יותר. חשוב לכבד את הזמן למנוחה ולהבין שהוא חלק חיוני מהחיים ולא איבוד זמן.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 5: Commandment 5 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>5. כבד את אביך ואת אמך למען יאריכון ימיך על האדמה אשר ה' אלקיך נתן לך</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר החמישי - כבוד וקשר בין-דורי
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">גבורה</div>
+                            <div class="description">
+                                גבורה היא הספירה החמישית, המסמלת כוח וצדק. גבורה מלמדת אותנו שעלינו להילחם למה שצודק,
+                                כולל כבוד להורים ולמסורת. היא דורשת אומץ להדגיש את החשיבות של כבוד והבנת ערכם של
+                                דורות קודמים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">מלחמת המלכים</div>
+                            <div class="description">
+                                אברהם יצא למלחמה כדי להציל את לוט אחיינו. ניסיון זה הדגיש את החשיבות של נכונות להילחם
+                                למען המשפחה והקרובים. הוא לימד שצריך גיבור אמיתי להציל את המשפחה ולהעניק לה כבוד.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת דבר</div>
+                            <div class="description">
+                                הדבר (מחלה) סמל לכאוס ובריאות לקויה. הוא הראה שבלי כבוד והדדיות, החברה יכולה לחלות.
+                                מכת דבר לימדה את חשיבות המבנה המשפחתי ויצירת קשרים חזקים בין דורות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">כבוד הדדי</div>
+                            <div class="description">
+                                כבוד הדדי הוא היסוד לכל מערכת יחסים בריאה. הוא דורש הכרה בערכם של אחרים והבנה שכולם
+                                שווים. כבוד הדדי יוצר אמון וקשר עמוק שמאפשר יחסים ארוכי טווח.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת השלד והשרירים</div>
+                            <div class="description">
+                                השלד מספק תמיכה וצורה לגוף, והשרירים מספקים כוח ותנועה. יחד הם מייצגים את המבנה והצורה
+                                של חיינו. כבוד להורים הוא יסוד חזק שנותן לנו מבנה ותמיכה לכל החיים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה תנועתית</div>
+                            <div class="description">
+                                אינטליגנציה תנועתית היא היכולת להשתמש בגוף בצורה יעילה ולשלוט על תנועות. היא מאפשרת
+                                לנו להביע את עצמנו דרך תנועה ולהבין את חשיבות הכבוד למעשינו ולפעולותינו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = כבוד</div>
+                            <div class="description">
+                                עושר צריך להיעשות במטרה להביא כבוד - לעצמנו ולמשפחה שלנו. כשאנו מכבדים את מה שיש לנו,
+                                אנו מצליחים ליצור עושר שמחזק את הקשרים המשפחתיים ומביא כבוד לשושלת שלנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">מנהיגות אמיתית</div>
+                            <div class="description">
+                                מנהיגות אמיתית דורשת כבוד כלפי תומכינו והבנה שהם חלק חשוב מהצלחתנו. בקונפליקט, חשוב
+                                לכבד גם את האויב ולהבין שאיננו נלחמים על הרס אלא על המטרות הנכונות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = כבוד</div>
+                            <div class="description">
+                                הזמן שאנו נותנים למישהו משקף את הכבוד שיש לנו כלפיו. כשאנו מקדישים זמן להורים ולמשפחה,
+                                אנו מראים שהקשר עם המשפחה הוא בעל ערך עליון. זמן הוא מתנה שאפשר לתת.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 6: Commandment 6 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>6. לא תרצח</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר השישי - קדושת החיים
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">תפארת</div>
+                            <div class="description">
+                                תפארת היא הספירה השישית, המסמלת יופי ואיזון. תפארת מלמדת אותנו שהחיים הם יופי מיוחד
+                                ויקר. היא מציגה את חשיבות השמירה על חיים והבנת הערך של כל חיים. תפארת מדגישה איזון בין
+                                רגש לשכל.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">ברית בין הבתרים</div>
+                            <div class="description">
+                                אברהם כרת ברית עם ה' ועבר בין בתרי בהמה. ברית זו סימלה את המחויבות האלוהית לשמור על
+                                חייו של אברהם וזרעו. היא לימדה שהחיים הם קדושים והאל מחויב לשמור עליהם.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת שחין</div>
+                            <div class="description">
+                                השחין (פצעים) מסמל את ההשחתה של הגוף והנופס. הוא הראה שכאשר לא מכבדים את קדושת החיים,
+                                הגוף והחיים עצמם יכולים להיפגע. מכת שחין לימדה את חשיבות השמירה על בריאות וחיים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">אהבה ללא תנאי</div>
+                            <div class="description">
+                                אהבה ללא תנאי פירושה לקבל את האחר כמו שהוא, בלי תנאים ובלי שיפוט. היא מאפשרת לנו לראות
+                                את הערך העצמי של כל אחד ולהבין שכל אדם הוא יקר ומיוחד. אהבה ללא תנאי יוצרת סביבה בטוחה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת הדם והלימפה</div>
+                            <div class="description">
+                                הדם מספק חמצן וחומרי מזון לכל הגוף, והלימפה מנקזת רעלים ומגנה מפני מחלות. יחד, הן
+                                מייצגות
+                                את הזרימה והחיים. כשם שהדם הוא הכוח החיים, כך האהבה והשמירה על חיים הם הכוח של קיום.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה בין-אישית</div>
+                            <div class="description">
+                                אינטליגנציה בין-אישית היא היכולת להבין ולתקשר עם אחרים. היא מאפשרת לנו לזהות רגשות של
+                                אחרים, להרגיש אמפתיה ולבנות מערכות יחסים חזקות. היא מאפשרת לנו להבין את הערך של כל אדם.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = חיים</div>
+                            <div class="description">
+                                עושר אמיתי לא נמדד בכסף אלא בחיים. כשאנו שומרים על חיים ונותנים לכל אדם את מה שמגיע לו,
+                                אנו יוצרים עושר אמיתי שמביא ברכה וחיים. עושר צריך להגדיל חיים ולא להקטין אותם.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">הגנה על החיים</div>
+                            <div class="description">
+                                בעת קונפליקט, המטרה היא להגן על חיים ולא להרוס אותם. חשוב להבין שכל חיים הם יקרים
+                                ולפעול למנוע הרס. הגנה על חיים משקפת ערכים אנושיים וחשיבה לטווח ארוך.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = חיים</div>
+                            <div class="description">
+                                הזמן הוא החיים עצמם. כל רגע שחולף הוא חיים שעוברים. כשאנו מבינים את זה, אנו מתחילים
+                                להעריך כל רגע ולהשקיע אותו בדברים שמביאים חיים. זמן מבוזבז הוא חיים מבוזבזים.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 7: Commandment 7 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>7. לא תנאף</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר השביעי - קדושת הזוגיות והנאמנות
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">נצח</div>
+                            <div class="description">
+                                נצח היא הספירה השביעית, המסמלת נצחיות ונחישות. נצח מלמדת אותנו שהמחויבות והנאמנות הן
+                                לנצח. היא מציגה את החשיבות של יצירת קשרים ארוכי טווח ושמירה עליהם. נצח מסמלת את הכוח
+                                להמשיך למרות קשיים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">ברית מילה</div>
+                            <div class="description">
+                                אברהם כרת ברית מילה עם ה' והוא וכל זרעו זכרו ברית זו לדורות. ברית זו סימלה את הנאמנות
+                                והמחויבות הנצחית בין האדם לאלוהים. היא לימדה שלמחויבות יש כוח לנצח ושהמילה היא קדושה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת ברד</div>
+                            <div class="description">
+                                הברד מסמל הרס וחוסר יציבות. הוא הראה שכאשר לא שומרים על נאמנות, ניתן להרוס קשרים
+                                ויציבות.
+                                מכת ברד לימדה את חשיבות יציבות ורסן ביחסים ושמרירה על מחויבות יש השפעות חיוביות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">נאמנות מוחלטת</div>
+                            <div class="description">
+                                נאמנות מוחלטת פירושה מחויבות ללא תנאי למה שאנו עושים ולמי שאנו עם. היא דורשת אומץ לעמוד
+                                במחויבות גם כשקשה. נאמנות יוצרת אמון ומאפשרת יצירת קשרים עמוקים וארוכי טווח.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת הרבייה</div>
+                            <div class="description">
+                                מערכת הרבייה מסמלת את כוח החיים והיצירה. היא מייצגת את החיבור העמוק בין בני הזוג ואת
+                                הנאמנות שמאפשרת יצירת חיים חדשים. קדושת הזוגיות היא היסוד ליצירה וצמיחה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה תוך-אישית</div>
+                            <div class="description">
+                                אינטליגנציה תוך-אישית היא היכולת להבין את עצמנו ולהכיר ברגשותינו ובצרכים שלנו. היא
+                                מאפשרת לנו ליצור קשרים איתנים עם עצמנו ובכך גם עם אחרים. היא עוזרת לנו להבין מה מניע
+                                אותנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = נאמנות</div>
+                            <div class="description">
+                                עושר מתבסס על נאמנות - נאמנות למטרות שלנו, למשפחה שלנו ולערכים שלנו. כשאנו נאמנים למטרות
+                                ארוכות טווח ומחויבים לשמור על עקרונותינו, אנו יוצרים עושר בר קיימא שמחזיק לאורך זמן.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">אמון הדדי</div>
+                            <div class="description">
+                                בקונפליקט, אמון הדדי הוא יסוד חשוב. כשאנו מנהלים מלחמה בצורה מוסרית ומכבדים את האויב,
+                                אנו יכולים לבנות אמון גם במצבים קשים. אמון יוצר בסיס לפתרונות ויחסים יציבים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = נאמנות</div>
+                            <div class="description">
+                                הזמן שאנו מקדישים למשהו משקף את הנאמנות שלנו למטרה הזו. כשאנו משקיעים זמן עקבי ומתמשך
+                                בפרויקט או במערכת יחסים, אנו מראים נאמנות ומחויבות. זמן מבוזבז משקף חוסר נאמנות.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 8: Commandment 8 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>8. לא תגנב</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר השמיני - יושר וכבוד לקניין הזולת
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">הוד</div>
+                            <div class="description">
+                                הוד היא הספירה השמינית, המסמלת תהילה והדר. הוד מלמדת אותנו שהכבוד והיושר הם הבסיס לתהילה
+                                אמיתית. היא מציגה את החשיבות של יושר ומאפשרת לנו לראות שכיבוד הזולת מביא כבוד ושיפור.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">גירוש הגר וישמעאל</div>
+                            <div class="description">
+                                אברהם נצטווה לגרש את הגר וישמעאל, בעוד היה חמור על לבו. ניסיון זה לימד את אברהם שיש פעם
+                                שהברכה מגיעה רק דרך צדק ויושר, גם אם הוא כואב. הוא לימד שביצוע הצדק הנכון חשוב יותר
+                                מהרגשות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת ארבה</div>
+                            <div class="description">
+                                הארבה מסמל גזל וחוסר יושר. הוא הרס את כל היבול והשדות, מה שמדגיש שכאשר יש גזל וחוסר כבוד
+                                לקניין הזולת, החברה כולה ניזוקה. מכת ארבה לימדה את חשיבות הצדק והכבוד לקניין.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">יושר מוחלט</div>
+                            <div class="description">
+                                יושר מוחלט פירושה לשמור על עקרונות מוסריים גם כשזה לא נוח. הוא דורש אומץ לקום למה
+                                שנכון ולא להתפשר על ערכים. יושר יוצר אמון ונותן לנו בסיס איתן לשם הכל.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת הכבד והמרה</div>
+                            <div class="description">
+                                הכבד מנקה רעלים מהגוף והמרה מפרקת שומנים. יחד הם מייצגים ניקיון וחילוף חומרים. כשם שהגוף
+                                צריך לנקות רעלים, כך אנו צריכים לשמור על יושר וניקיון מוסרי בחיים שלנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה לוגית</div>
+                            <div class="description">
+                                אינטליגנציה לוגית היא היכולת לחשוב בצורה מעשית ולפתור בעיות. היא מאפשרת לנו להבין את
+                                ההשלכות של מעשינו ולחשוב על התוצאות לפני שאנו פועלים. לוגיקה מאפשרת קבלת החלטות מוסריות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = יושר</div>
+                            <div class="description">
+                                עושר אמיתי נבנה על יושר. כשאנו מתנהגים ביושר ומכבדים את מה שיש לאחרים, אנו יוצרים עושר
+                                שתואם את ערכי הצדק והמוסר. עושר שמבוסס על גזל לא יחזיק מעמד ויביא חורבן.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">יושר במלחמה</div>
+                            <div class="description">
+                                בקונפליקט, חשוב להילחם ביושר ולכבד את חוקי המלחמה. יושר במלחמה משקף את הכבוד שלנו לעצמנו
+                                ולמטרותינו ומאפשר פתרון צודק. מלחמה בלי יושר נידונה לכישלון בתחומים אחרים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = יושר</div>
+                            <div class="description">
+                                הזמן שנדרש להשגת המטרה בצורה ישרה הוא זמן מטופח. כשאנו מתנהגים ביושר, הזמן שלנו אינו
+                                מבוזבז בתיקון עוולות אלא במימוש המטרות שלנו. יושר חוסך זמן רב בתהליך.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 9: Commandment 9 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>9. לא תענה ברעך עד שקר</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר התשיעי - אמת וכללי עדות
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">יסוד</div>
+                            <div class="description">
+                                יסוד היא הספירה התשיעית, המסמלת בסיס וקשר. יסוד מלמדת אותנו שהאמת היא היסוד לכל דבר
+                                יציב ובר קיימא. היא מציגה את החשיבות של אמת והבנה שהשקר לעולם לא יחזיק מעמד. יסוד מתחבר
+                                למלכות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">עקידת יצחק</div>
+                            <div class="description">
+                                אברהם נצטווה להעלות את יצחק בנו לעולה, בעוד שהאהבה ליצחק הייתה תכלית חיוו. ניסיון זה
+                                לימד שהאמת האלוהית תמיד נכונה, גם אם היא נראית קשה או לא מובנת. האמת תמיד מנצחת.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת חושך</div>
+                            <div class="description">
+                                החושך מסמל את האמת הנסתרת ובורות. הוא הראה שבלי אמת ואור, אי אפשר להתמצא ולחיות.
+                                מכת חושך לימדה את חשיבות העדות והאמת וההשלכות של חיים בשקר ובורות.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">אמת מוחלטת</div>
+                            <div class="description">
+                                אמת מוחלטת פירושה להיות כנים עם עצמנו ועם אחרים. היא דורשת אומץ לעמוד באמת גם כשזה
+                                קשה. אמת יוצרת אמון ומאפשרת להבנות קשרים אמיתיים ויציבים על בסיס יסודי אמיתי.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת הכליות</div>
+                            <div class="description">
+                                הכליות מסננות את הדם ושומרות על איזון בגוף. הן מייצגות את יכולת הניקיון וההבחנה. כשם
+                                שהכליות מסננות רעלים, כך עלינו להיות כנים ולסנן את השקר בחיים שלנו ולשאוף לאמת.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה טבעית</div>
+                            <div class="description">
+                                אינטליגנציה טבעית היא היכולת להבין את העולם הטבעי והטבע האנושי. היא מאפשרת לנו להבחין
+                                בין אמת לשקר ולהבין את החוקים הטבעיים שמושלים בחיים. היא עוזרת לנו להרגיש מה נכון.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = אמת</div>
+                            <div class="description">
+                                עושר אמיתי מבוסס על אמת. כשאנו בונים עושר בדרך כנה ומתוך יושר, אנו יוצרים בסיס יציב
+                                שמחזיק לאורך זמן. עושר שמבוסס על שקרים יפגע בסופו של דבר ולא יביא ברכה אמיתית.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">אמת במלחמה</div>
+                            <div class="description">
+                                בקונפליקט, חשוב להיות כנים על המטרות וההשלכות. אמת במלחמה משקפת את הכבוד שלנו ואת
+                                המחויבות שלנו לצדק. מלחמה שמבוססת על שקרים תסיים בכישלון בתחומים נוספים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = אמת</div>
+                            <div class="description">
+                                הזמן תמיד מגלה את האמת. השקר אינו יכול להתקיים לאורך זמן ותמיד יתגלה. כשאנו חיים באמת,
+                                הזמן שלנו מבוזבז בצורה יעילה ומביאה תוצאות אמיתיות. אמת חוסכת זמן ותסכול.
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 10: Commandment 10 -->
+                    <tr class="matrix-row">
+                        <td class="row-header">
+                            <strong>10. לא תחמד בית רעך לא תחמד אשת רעך ועבדו ואמתו ושורו וחמרו וכל אשר לרעך</strong>
+                            <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">
+                                הדיבר העשירי - סיפוק והסתפקות במה שיש
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-1">
+                            <div class="main-text">מלכות</div>
+                            <div class="description">
+                                מלכות היא הספירה העשירית, המסמלת ממלכה וגשמיות. מלכות מלמדת אותנו שהסיפוק האמיתי מגיע
+                                מהבנה ומקבלה של מה שיש לנו. היא מציגה את החשיבות של מציאת שמחה בתוך הקיים וההבנה
+                                שהחיים הם מתנה.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-2">
+                            <div class="main-text">קבורת שרה במערת המכפלה</div>
+                            <div class="description">
+                                אברהם קנה את מערת המכפלה כדי לקבור את שרה. ניסיון זה לימד את אברהם שהמבט הקדמי חשוב
+                                מהחושק במה שלא שייך לו. הוא לימד את החשיבות של יצירת מקום משל עצמנו ושמחה במה שיש לנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-3">
+                            <div class="main-text">מכת בכורות</div>
+                            <div class="description">
+                                מכת בכורות הייתה המכה האחרונה והקשה מכולן. היא הראתה שהחשוק במה שלא שייך לו יכול להביא
+                                הרס גדול. מכת בכורות לימדה את חשיבות הסיפוק וההבנה שהכל צבוע מהאלוהים ולא מה שאנו רוצים.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-4">
+                            <div class="main-text">שמחה אמיתית</div>
+                            <div class="description">
+                                שמחה אמיתית מגיעה מהבנה וקבלה של מה שיש לנו. היא דורשת עצירה והערכה של מה שטוב בחיים
+                                שלנו. שמחה אמיתית מאפשרת לנו לחיות את הרגע ולמצוא שלום ושמחה בכל מצב.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-5">
+                            <div class="main-text">מערכת העור</div>
+                            <div class="description">
+                                העור הוא האיבר החיצוני המגן על הגוף וחושף אותו לעולם. הוא מייצג את היכולת שלנו להגן
+                                על עצמנו ולפתוח עצמנו לשמחה. כשם שהעור מאפשר לחוש, כך אנו יכולים להרגיש ולהעריך את מה
+                                שיש לנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-6">
+                            <div class="main-text">אינטליגנציה קיומית</div>
+                            <div class="description">
+                                אינטליגנציה קיומית היא היכולת להבין שאלות פילוסופיות על הקיום והמוות. היא מאפשרת לנו
+                                להבין את המשמעות של החיים ולמצוא שמחה בתוך הקיום. היא עוזרת לנו להעריך את מה שיש לנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-7">
+                            <div class="main-text">עושר = שמחה</div>
+                            <div class="description">
+                                עושר אמיתי מתבטא בשמחה ובסיפוק עם מה שיש לנו. כשאנו מרגישים עשירים פנימית, אנו יכולים
+                                ליצור עושר חיצוני שמהווה ביטוי של השמחה הפנימית. שמחה יוצרת עושר ולא להפך.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-8">
+                            <div class="main-text">שמחה בניצחון</div>
+                            <div class="description">
+                                בקונפליקט, חשוב לשמוח בניצחון בצורה בריאה ושמחה במה שהשגנו. שמחה בניצחון משקפת הבנה
+                                שהניצחון הוא מתנה ויש להעריך אותו. חשוב לא לחשוק בניצחונות של אחרים אלא לשמוח בשל שלנו.
+                            </div>
+                        </td>
+                        <td class="matrix-cell col-9">
+                            <div class="main-text">זמן = שמחה</div>
+                            <div class="description">
+                                הזמן שאנו מקדישים לשמחה והערכה של מה שיש לנו הוא הזמן הכי כדאי. כשאנו מבלים זמן בשמחה
+                                והנאה, אנו יוצרים זיכרונות יקרים וחיים יותר משמעותיים. שמחה גורמת לזמן להיראות חיובי.
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function () {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Matrix cell click effects
+        document.querySelectorAll('.matrix-cell').forEach(cell => {
+            cell.addEventListener('click', function () {
+                // Add pulse effect
+                this.style.animation = 'pulse 0.6s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+
+        // Add pulse animation CSS
+        const pulseStyle = document.createElement('style');
+        pulseStyle.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(pulseStyle);
+    </script>
+</body>
+
+</html>
